@@ -71,3 +71,21 @@ input {
   border-radius: 4px;
   color: $slate-grey;
 }
+
+div.card {
+  padding: 6px;
+  height: 300px;
+  background: rgba($color: #ffffff, $alpha: 0.05);
+  border: 1px solid $slate-grey;
+  border-radius: 4px;
+  min-width: 30%;
+  margin: 6px;
+}
+
+p.pill {
+  color: $contrast-warning;
+  text-align: center;
+  padding: 2px;
+  border-radius: 14px;
+  background-color: rgba($color: $contrast-warning, $alpha: .10);
+}
