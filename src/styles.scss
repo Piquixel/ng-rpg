@@ -37,9 +37,19 @@ h1.title-contrast {
   margin-bottom: 0.25rem;
 }
 
+h2.title-contrast {
+  color: $contrast-warning;
+  text-align: center;
+  margin-bottom: 0.25rem;
+}
+
 p.subtitle {
   color: $blue-slate;
   text-align: center;
+}
+p.subtitle-left {
+  color: $blue-slate;
+  text-align: left;
 }
 
 .landing-button {
@@ -51,4 +61,13 @@ p.subtitle {
   background-color: $twilight-indigo;
   text-align: center;
   cursor: pointer;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  background: rgba($color: #ffffff, $alpha: 0.05);
+  border: 1px solid $slate-grey;
+  border-radius: 4px;
+  color: $slate-grey;
 }
