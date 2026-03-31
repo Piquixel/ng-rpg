@@ -1,41 +1,22 @@
-div.container {
-  padding: 2rem;
-  max-width: 65vw;
-  max-height: 150px;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  img {
-    max-width: 25vw;
-    max-height: 150px;
-    margin: auto;
-    animation: float 3s ease-in-out infinite;
-  }
+@use '../../../mixins' as m;
+
+:host {
+  @include m.flex(column, $align: center, $gap: 2.5rem 0);
 }
 
-.features-list {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 1rem;
+#features-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+
   .feature-item {
-    background-color: rgba($color: #ffffff, $alpha: 0.05);
-    padding: 8px;
-    margin: 2px;
-    display: block;
-    border-radius: 15px;
-    width: 40%;
-    text-align: center;
-  }
-}
-
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
+    padding: 1rem;
+    backdrop-filter: brightness(0.85);
+    border-radius: 0.25rem;
+    // opacity: 0.66;
+    border: 1px solid rgb(255 255 255 / 0.08);
+    font:
+      normal 0.8rem/1 'Poppins',
+      sans-serif;
   }
 }

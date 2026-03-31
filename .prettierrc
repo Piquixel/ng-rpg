@@ -1,0 +1,19 @@
+{
+  "arrowParens": "avoid",
+  "bracketSameLine": true,
+  "bracketSpacing": true,
+  "htmlWhitespaceSensitivity": "css",
+  "overrides": [
+    {
+      "files": "*.html",
+      "options": {
+        "parser": "angular"
+      }
+    }
+  ],
+  "printWidth": 100,
+  "semi": true,
+  "singleAttributePerLine": true,
+  "singleQuote": true,
+  "trailingComma": "all"
+}

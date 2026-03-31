@@ -4,9 +4,10 @@ import { ICharacter } from '../models/character.interface';
 export const USER_CHOICES_CLASS: ICharacter[] = [
   {
     type: ClassType.Warrior,
-    name: 'Guerrier',
-    description: 'Tank robuste avec une grande résistance.',
-    features: ['Haute défense', 'Beaucoup de PV', 'Durable'],
+    icon: '⚔️',
+    name: 'Warrior',
+    description: 'Robust tank with high resistance.',
+    features: ['High defense', 'High HP', 'Durable'],
     characteristics: {
       atk: 15,
       def: 12,
@@ -17,9 +18,10 @@ export const USER_CHOICES_CLASS: ICharacter[] = [
   },
   {
     type: ClassType.Mage,
-    name: 'Sorcier',
-    description: 'Lanceur de sorts avec une puissance magique dévastatrice.',
-    features: ['Gros dégâts', 'Sorts puissants', 'Soin'],
+    icon: '🔮',
+    name: 'Mage',
+    description: 'Spellcaster with destructive magic power.',
+    features: ['High Damages', 'Powerful Spells', 'Heal'],
     characteristics: {
       atk: 20,
       def: 5,
@@ -30,9 +32,10 @@ export const USER_CHOICES_CLASS: ICharacter[] = [
   },
   {
     type: ClassType.Rogue,
-    name: 'Voleur',
-    description: 'Assassin agile qui frappe vite et fort.',
-    features: ['Haute vitesse', 'Coups critiques', 'Esquive'],
+    icon: '🗡️',
+    name: 'Rogue',
+    description: 'Agile assassin who hits fast and strong.',
+    features: ['High Speed', 'Critical Hits', 'Dodge'],
     characteristics: {
       atk: 18,
       def: 8,

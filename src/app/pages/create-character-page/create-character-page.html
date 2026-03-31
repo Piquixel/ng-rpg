@@ -1,20 +1,61 @@
-<div class="container">
-  <h2 class="title-contrast">⚔️ Création du personnage</h2>
-  <div class="input-ctrl">
-    <p class="subtitle-left">Nom du prénom</p>
-    <input type="text" placeholder="Entrez le nom de votre héro...">
-  </div>
-  <h3>Choix de la classe</h3>
-  <div class="select-class">
-    @for (item of data; track item.description) {
-      <div class="card">
-        <p>{{item.name}}</p>
-        <p>{{item.description}}</p>
-        @for (feature of item.features; track $index) {
-          <p class="pill">{{feature}}</p>
-        }
-      </div>
-    }
-  </div>
-  <div class="landing-button" routerLink="/create-character">🚀 Commencer l'aventure !</div>
+<h2>⚔️ Character Creation</h2>
+<div class="field-container">
+  <label for="chara-input">Character's name</label>
+  <input
+    id="chara-input"
+    type="text"
+    placeholder="Pick a name for your hero…" />
 </div>
+<h3 class="section-label">Pick a Guild</h3>
+<div class="select-class">
+  @for (item of data; track item.description) {
+    <button
+      class="interactContainer"
+      (click)="selectClass(item)">
+      <div
+        class="card"
+        [ariaSelected]="selectedGuild === item">
+        <h1 class="guild-icon">{{ item.icon }}</h1>
+        <h4>{{ item.name }}</h4>
+        <p>{{ item.description }}</p>
+        <div class="labels-container">
+          @for (feature of item.features; track $index) {
+            <span class="pill">{{ feature }}</span>
+          }
+        </div>
+      </div>
+    </button>
+  }
+</div>
+@if (selectedGuild !== null) {
+  <div class="stats-container">
+    <h3>Initial Stats - {{ selectedGuild.icon }} {{ selectedGuild.name }}</h3>
+    <table>
+      <tr>
+        <td>⚔️Attack</td>
+        <td>{{ selectedGuild.characteristics.atk }}</td>
+      </tr>
+      <tr>
+        <td>🛡️Defense</td>
+        <td>{{ selectedGuild.characteristics.def }}</td>
+      </tr>
+      <tr>
+        <td>💨Speed</td>
+        <td>{{ selectedGuild.characteristics.speed }}</td>
+      </tr>
+      <tr>
+        <td>❤️Max HP</td>
+        <td>{{ selectedGuild.characteristics.hp }}</td>
+      </tr>
+      <tr>
+        <td>🩵Max MP</td>
+        <td>{{ selectedGuild.characteristics.mana }}</td>
+      </tr>
+    </table>
+  </div>
+}
+<button
+  class="interactBtn interactBtn__primary"
+  routerLink="/create-character">
+  🚀 Begin Adventure!
+</button>

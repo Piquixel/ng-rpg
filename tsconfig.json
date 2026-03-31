@@ -3,6 +3,13 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "paths": {
+      "data/*": ["./src/app/data/*"],
+      "enums/*": ["./src/app/enums/*"],
+      "models/*": ["./src/app/models/*"],
+      "pages/*": ["./src/app/pages/*"],
+      "components/*": ["./src/app/components/*"]
+    },
     "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,

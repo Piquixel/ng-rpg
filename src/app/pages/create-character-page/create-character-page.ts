@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ICharacter } from 'models/character.interface';
 import { USER_CHOICES_CLASS } from '../../data/class.data';
 
 @Component({
@@ -8,5 +9,9 @@ import { USER_CHOICES_CLASS } from '../../data/class.data';
   styleUrl: './create-character-page.scss',
 })
 export class CreateCharacterPage {
-  public readonly data = USER_CHOICES_CLASS;
+  public selectedGuild: ICharacter | null = null;
+  public readonly data: ICharacter[] = USER_CHOICES_CLASS;
+  public selectClass(guild: ICharacter): void {
+    this.selectedGuild = guild ?? null;
+  }
 }

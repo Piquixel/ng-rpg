@@ -1,0 +1,35 @@
+{
+  "[html]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "editor.codeActionsOnSave": {
+    "source.addMissingImports.ts": "explicit",
+    "source.fixAll.eslint": "explicit",
+    "source.fixAll.markdownlint": "explicit",
+    "source.fixAll.prettier": "explicit",
+    "source.fixAll.ts": "explicit",
+    "source.organizeImports": "explicit",
+    "source.removeUnusedImports": "explicit",
+    "source.sort.json": "explicit",
+    "source.sortImports": "explicit"
+  },
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.patterns": {
+    "*.ts": "${capture}.html, ${capture}.scss",
+    "package.json": "package-lock.json, angular.json, .editorconfig, eslint.*, .prettier*",
+    "styles.scss": "_*.scss",
+    "tsconfig.json": "tsconfig.*.json"
+  },
+  "prettier.configPath": ".prettierrc",
+  "prettier.documentSelectors": ["**/*.{scss, json}"],
+  "prettier.prettierPath": "./node_modules/prettier",
+  "workbench.colorCustomizations": {
+    "[Vira*]": {
+      "tab.activeBorder": "#ff669e5c",
+      "tab.activeModifiedBorder": "#ff669e"
+    }
+  }
+}

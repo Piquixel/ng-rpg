@@ -1,11 +1,12 @@
-import { ClassType } from "../enums/class-type.enum";
+import { ClassType } from '../enums/class-type.enum';
 
 export interface ICharacter {
   type: ClassType;
+  icon: string;
   name: string;
   description: string;
   features: string[];
-  characteristics: ICharacteristics
+  characteristics: ICharacteristics;
 }
 
 export interface ICharacteristics {
