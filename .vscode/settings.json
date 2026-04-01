@@ -17,10 +17,11 @@
     "source.sortImports": "explicit"
   },
   "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.expand": false,
   "explorer.fileNesting.patterns": {
-    "*.ts": "${capture}.html, ${capture}.scss",
-    "package.json": "package-lock.json, angular.json, .editorconfig, eslint.*, .prettier*",
-    "styles.scss": "_*.scss",
+    "*.ts": "${capture}.html, ${capture}.*.ts, ${capture}.scss",
+    "package.json": "package-lock.json, angular.json, .editorconfig, eslint.*, .prettierrc*",
+    "styles.scss": "_*.scss, *.css",
     "tsconfig.json": "tsconfig.*.json"
   },
   "prettier.configPath": ".prettierrc",

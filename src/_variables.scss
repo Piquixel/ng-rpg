@@ -1,9 +1,21 @@
+@use 'sass:color';
+
 $backgroundPrimary: #301934;
 $backgroundSecondary: #66023c;
-$InteractionPrimary: #e3256b;
+$InteractionPrimary: #e3266b;
 $InteractionSecondary: #f56fa1;
 $HeadingPrimary: #cfb53b;
 $HeadingSecondary: #e4d00a;
+
+$InteractionHover: color.change($InteractionSecondary, $alpha: 0.05);
+$InteractionSelected: color.change($InteractionPrimary, $alpha: 0.1);
+
+$radiusXS: 0.25rem;
+$radiusSm: 0.33rem;
+$radiusMd: 0.5rem;
+$radiusLg: 1rem;
+$radiusXL: 2rem;
+$radiusRound: 100em;
 
 $fontDefault:
   normal 1rem/1 'Poppins',

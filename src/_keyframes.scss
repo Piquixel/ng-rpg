@@ -1,11 +1,49 @@
 @keyframes floating {
   0% {
     transform: translateY(0);
+    filter: drop-shadow(0 4px 2px rgb(0 0 0 / 0.5));
   }
   50% {
     transform: translateY(-20px);
+    filter: drop-shadow(0 24px 12px rgb(0 0 0 / 0.18));
   }
   100% {
     transform: translateY(0);
+    filter: drop-shadow(0 4px 2px rgb(0 0 0 / 0.5));
+  }
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@mixin grow($radius: 50%, $duration: 5s, $delay: 0s) {
+  animation: grow $duration ease-in-out $delay infinite;
+  @keyframes grow {
+    0% {
+      width: $radius;
+      transform: translate(0, 0);
+    }
+    50% {
+      width: calc($radius * 1.5);
+      transform: translate(-50%, -50%);
+    }
+    100% {
+      width: $radius;
+      transform: translate(0, 0);
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    height: 0%;
+  }
+  to {
+    opacity: 1;
+    height: 100%;
   }
 }

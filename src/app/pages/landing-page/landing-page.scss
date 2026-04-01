@@ -1,20 +1,22 @@
 @use '../../../mixins' as m;
+@use '../../../variables' as v;
 
 :host {
   @include m.flex(column, $align: center, $gap: 2.5rem 0);
 }
 
-#features-list {
+.featuresGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0.5rem;
 
-  .feature-item {
+  &__item {
     padding: 1rem;
-    backdrop-filter: brightness(0.85);
-    border-radius: 0.25rem;
-    // opacity: 0.66;
+    backdrop-filter: brightness(0.75) blur(44px);
+    border-radius: v.$radiusSm;
+    overflow: hidden;
     border: 1px solid rgb(255 255 255 / 0.08);
+    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 0.2);
     font:
       normal 0.8rem/1 'Poppins',
       sans-serif;

@@ -1,61 +1,50 @@
-<h2>⚔️ Character Creation</h2>
-<div class="field-container">
-  <label for="chara-input">Character's name</label>
+<h2 class="title-2">⚔️ Character Creation</h2>
+<div class="fieldContainer">
+  <label for="chara-input" class="fieldContainer__label">Character's name</label>
   <input
-    id="chara-input"
     type="text"
-    placeholder="Pick a name for your hero…" />
+    placeholder="Pick a name for your hero…"
+    id="chara-input"
+    class="fieldContainer__field" />
 </div>
-<h3 class="section-label">Pick a Guild</h3>
-<div class="select-class">
+<h3 class="title-3 title-3--label">Pick a Guild</h3>
+<div class="cardsContainer">
   @for (item of data; track item.description) {
-    <button
-      class="interactContainer"
-      (click)="selectClass(item)">
-      <div
-        class="card"
-        [ariaSelected]="selectedGuild === item">
-        <h1 class="guild-icon">{{ item.icon }}</h1>
-        <h4>{{ item.name }}</h4>
-        <p>{{ item.description }}</p>
-        <div class="labels-container">
-          @for (feature of item.features; track $index) {
-            <span class="pill">{{ feature }}</span>
-          }
-        </div>
-      </div>
-    </button>
+    <app-character-card
+      [isSelected]="selectedGuild === item"
+      [guild]="item"
+      (selected)="selectGuild(item)" />
   }
 </div>
-@if (selectedGuild !== null) {
-  <div class="stats-container">
-    <h3>Initial Stats - {{ selectedGuild.icon }} {{ selectedGuild.name }}</h3>
-    <table>
-      <tr>
-        <td>⚔️Attack</td>
-        <td>{{ selectedGuild.characteristics.atk }}</td>
-      </tr>
-      <tr>
-        <td>🛡️Defense</td>
-        <td>{{ selectedGuild.characteristics.def }}</td>
-      </tr>
-      <tr>
-        <td>💨Speed</td>
-        <td>{{ selectedGuild.characteristics.speed }}</td>
-      </tr>
-      <tr>
-        <td>❤️Max HP</td>
-        <td>{{ selectedGuild.characteristics.hp }}</td>
-      </tr>
-      <tr>
-        <td>🩵Max MP</td>
-        <td>{{ selectedGuild.characteristics.mana }}</td>
-      </tr>
-    </table>
+<div class="statsContainer" [class.open]="selectedGuild">
+  <div class="statsContainer__content">
+    <h3 class="title-3 title-3--label">
+      Initial Stats - {{ selectedGuild?.icon }} {{ selectedGuild?.name }}
+    </h3>
+    <div class="statsContainer__content__table">
+      <p class="statsContainer__content__row">
+        <span>⚔️Attack</span>
+        <span>{{ selectedGuild?.characteristics?.atk }}</span>
+      </p>
+      <p class="statsContainer__content__row">
+        <span>🛡️Defense</span>
+        <span>{{ selectedGuild?.characteristics?.def }}</span>
+      </p>
+      <p class="statsContainer__content__row">
+        <span>💨Speed</span>
+        <span>{{ selectedGuild?.characteristics?.speed }}</span>
+      </p>
+      <p class="statsContainer__content__row">
+        <span>❤️Max HP</span>
+        <span>{{ selectedGuild?.characteristics?.hp }}</span>
+      </p>
+      <p class="statsContainer__content__row">
+        <span>🩵Max MP</span>
+        <span>{{ selectedGuild?.characteristics?.mana }}</span>
+      </p>
+    </div>
   </div>
-}
-<button
-  class="interactBtn interactBtn__primary"
-  routerLink="/create-character">
+</div>
+<button class="interactBtn interactBtn--primary" routerLink="/create-character">
   🚀 Begin Adventure!
 </button>

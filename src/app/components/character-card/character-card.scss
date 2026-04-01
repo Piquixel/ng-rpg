@@ -1,0 +1,61 @@
+@use '../../../variables' as v;
+@use '../../../mixins' as m;
+
+.card {
+  @include m.flex($gap: 1rem 0);
+  backdrop-filter: brightness(0.66);
+  padding: 2rem 1rem;
+  border-radius: v.$radiusLg;
+  height: 100%;
+  box-shadow:
+    0 0 0 1px rgb(255 255 255 / 0.08),
+    0 2px 4px 0 rgb(0 0 0 / 0.5);
+  overflow: hidden;
+  transition: 250ms ease-in-out;
+  transition-property: box-shadow, transform, background;
+
+  &:hover {
+    box-shadow:
+      0 0 0 1px rgb(255 255 255 / 0.08),
+      0 6px 8px 3px rgb(0 0 0 / 0.25);
+    transform: translateY(-4px);
+    background-color: v.$InteractionHover;
+  }
+
+  &.selected {
+    box-shadow:
+      0 0 0 2px v.$InteractionPrimary,
+      0 2px 8px 2px rgb(0 0 0 / 0.2);
+    transform: scale(1.025);
+    background-color: v.$InteractionSelected;
+  }
+
+  .guild-icon {
+    font-size: 3.33rem;
+    margin-block: 1rem;
+  }
+
+  h4 {
+    font:
+      600 1.25rem/1.15 'Metamorphous',
+      serif;
+  }
+
+  p {
+    font-size: 0.9rem;
+    opacity: 0.66;
+  }
+
+  .labels-container {
+    @include m.flex(row, wrap, center, $gap: 0.5rem);
+
+    span {
+      color: v.$HeadingSecondary;
+      font-size: 0.9rem;
+      background-color: color-mix(in srgb, transparent 75%, v.$HeadingPrimary);
+      padding: 0.33rem 1rem;
+      border: 1px solid rgb(255 255 255 / 0.08);
+      border-radius: 100em;
+    }
+  }
+}

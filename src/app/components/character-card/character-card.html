@@ -1,0 +1,12 @@
+<button class="interactContainer" (click)="selected.emit()">
+  <div class="card" [class.selected]="isSelected()">
+    <h1 class="guild-icon">{{ guild().icon }}</h1>
+    <h4>{{ guild().name }}</h4>
+    <p>{{ guild().description }}</p>
+    <div class="labels-container">
+      @for (feature of guild().features; track $index) {
+        <span class="pill">{{ feature }}</span>
+      }
+    </div>
+  </div>
+</button>
