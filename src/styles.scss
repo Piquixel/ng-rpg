@@ -17,42 +17,56 @@ body {
     pointer-events: none;
     position: fixed;
     inset: 0;
-    opacity: 0.8;
+    // opacity: 0.8;
     animation: rotate 30s linear 0s infinite forwards normal;
-    filter: blur(60px);
+    filter: blur(64px);
     z-index: -1;
 
     &__shape {
-      // mix-blend-mode: color-dodge;
+      mix-blend-mode: color-dodge;
       position: absolute;
       aspect-ratio: 1;
       width: var(--base-width, 550px);
       height: auto;
       background-color: v.$backgroundSecondary;
       border-radius: 50%;
+      inset: calc(0px - var(--base-width) / var(--offset));
 
       &:first-child {
-        --base-width: 550px;
+        --base-width: 33vh;
+        --offset: 5;
 
-        top: -33%;
-        left: -15%;
-        @include k.grow(var(--base-width), 6.66s, 500ms);
+        bottom: unset;
+        right: unset;
+
+        @include k.grow(var(--base-width), 5s, 250ms, var(--offset));
       }
 
       &:nth-child(2) {
-        --base-width: 320px;
+        --base-width: 66vh;
+        --offset: 3;
 
-        top: -10%;
-        right: -5%;
-        @include k.grow(var(--base-width), 3.33s);
+        bottom: unset;
+        left: unset;
+        @include k.grow(var(--base-width), 10s, 500ms, var(--offset));
+      }
+
+      &:nth-child(3) {
+        --base-width: 99vh;
+        --offset: 4;
+
+        top: unset;
+        left: unset;
+        @include k.grow(var(--base-width), 15s, 750ms, var(--offset));
       }
 
       &:last-child {
-        --base-width: 1200px;
+        --base-width: 132vh;
+        --offset: 6;
 
-        bottom: -80%;
-        left: 50%;
-        @include k.grow(var(--base-width), 12.5s, 1.5s);
+        top: unset;
+        right: unset;
+        @include k.grow(var(--base-width), 20s, 1s, var(--offset));
       }
     }
   }
