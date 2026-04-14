@@ -2,6 +2,7 @@
 <div class="fieldContainer">
   <label for="chara-input" class="fieldContainer__label">Character's name</label>
   <input
+    [formControl]="charName"
     type="text"
     placeholder="Pick a name for your hero…"
     id="chara-input"
@@ -13,38 +14,12 @@
     <app-character-card
       [isSelected]="selectedGuild === item"
       [guild]="item"
-      (selected)="selectGuild(item)" />
+      (pick)="pickGuild(item)" />
   }
 </div>
-<div class="statsContainer" [class.open]="selectedGuild">
-  <div class="statsContainer__content">
-    <h3 class="title-3 title-3--label">
-      Initial Stats - {{ selectedGuild?.icon }} {{ selectedGuild?.name }}
-    </h3>
-    <div class="statsContainer__content__table">
-      <p class="statsContainer__content__row">
-        <span>⚔️Attack</span>
-        <span>{{ selectedGuild?.characteristics?.atk }}</span>
-      </p>
-      <p class="statsContainer__content__row">
-        <span>🛡️Defense</span>
-        <span>{{ selectedGuild?.characteristics?.def }}</span>
-      </p>
-      <p class="statsContainer__content__row">
-        <span>💨Speed</span>
-        <span>{{ selectedGuild?.characteristics?.speed }}</span>
-      </p>
-      <p class="statsContainer__content__row">
-        <span>❤️Max HP</span>
-        <span>{{ selectedGuild?.characteristics?.hp }}</span>
-      </p>
-      <p class="statsContainer__content__row">
-        <span>🩵Max MP</span>
-        <span>{{ selectedGuild?.characteristics?.mana }}</span>
-      </p>
-    </div>
-  </div>
-</div>
-<button class="interactBtn interactBtn--primary" routerLink="/create-character">
+<button
+  [disabled]="charName.invalid || !selectedGuild"
+  class="interactBtn interactBtn--primary"
+  routerLink="/game/map">
   🚀 Begin Adventure!
 </button>

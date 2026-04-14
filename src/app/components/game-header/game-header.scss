@@ -1,0 +1,70 @@
+@use '../../../mixins' as m;
+@use '../../../variables' as v;
+
+:host {
+  @include m.flex(row, $justify: space-between);
+  width: 100%;
+  font:
+    normal 0.9rem/1 'Poppins',
+    sans-serif;
+
+  & > * {
+    @include m.flex(row, $gap: 0 1.5rem);
+
+    & > * {
+      @include m.flex(row, $gap: 0 1rem);
+    }
+  }
+
+  .headerNav {
+    position: relative;
+
+    &__title {
+      font:
+        700 1.66rem/1 'Skranji',
+        system-ui;
+    }
+
+    &__list {
+      position: relative;
+      height: 100%;
+
+      &__item {
+        cursor: pointer;
+        line-height: 24px;
+
+        &.active {
+          border-bottom: 1px solid v.$InteractionPrimary;
+        }
+      }
+    }
+  }
+
+  .headerMenu {
+    &__item--stats {
+      font-weight: 600;
+      letter-spacing: 0.025rem;
+
+      & > #money {
+        color: #e6eb19;
+      }
+
+      & > #level {
+        color: #4ba0e6;
+      }
+    }
+
+    .headerMenu__item--actions__item {
+      padding: 0.33rem 0.66rem;
+      border-radius: 0.4rem;
+
+      &:first-child {
+        background-color: #159915;
+      }
+
+      &:last-child {
+        background-color: #dd2727;
+      }
+    }
+  }
+}

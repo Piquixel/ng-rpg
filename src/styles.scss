@@ -12,6 +12,9 @@ body {
   @include m.flex($justify: center);
   text-align: center;
   background-color: v.$backgroundPrimary;
+  font:
+    normal 0.9rem/1 'Poppins',
+    sans-serif;
 
   .backgroundContainer {
     pointer-events: none;
@@ -117,8 +120,13 @@ body {
 
   &--label {
     font-size: 1.25rem;
-    width: fit-content;
+    // width: fit-content;
   }
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
 }
 
 .interactBtn {
@@ -131,10 +139,19 @@ body {
   box-shadow: 0 2px 2px 0 rgb(0 0 0 / 0.5);
   overflow: hidden;
   transition: 250ms ease 0s;
-  transition-property: background, transform, box-shadow;
+  transition-property: background, transform, box-shadow, filter, letter-spacing;
   z-index: 0;
 
-  &::before {
+  &:disabled {
+    background: unset;
+    color: #fff;
+    box-shadow: none;
+    backdrop-filter: brightness(0.66);
+    letter-spacing: 0.1rem;
+    filter: blur(4px);
+  }
+
+  &:not(:disabled)::before {
     content: '';
     position: absolute;
     transform: translateY(-50%) rotate(-45deg);
@@ -147,7 +164,7 @@ body {
     z-index: -1;
   }
 
-  &:hover {
+  &:not(:disabled):hover {
     transform: translateY(-4px);
     box-shadow: 0 6px 8px 0 rgb(0 0 0 / 0.25);
     transition-delay: 120ms;
@@ -158,7 +175,7 @@ body {
     }
   }
 
-  &--primary {
+  &--primary:not(:disabled) {
     background-color: v.$InteractionPrimary;
 
     &:hover {

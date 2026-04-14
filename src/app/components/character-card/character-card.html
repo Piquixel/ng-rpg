@@ -1,5 +1,5 @@
-<button class="interactContainer" (click)="selected.emit()">
-  <div class="card" [class.selected]="isSelected()">
+<button class="interactContainer" [class.selected]="isSelected()" (click)="pick.emit()">
+  <div class="card">
     <h1 class="guild-icon">{{ guild().icon }}</h1>
     <h4>{{ guild().name }}</h4>
     <p>{{ guild().description }}</p>
@@ -8,5 +8,6 @@
         <span class="pill">{{ feature }}</span>
       }
     </div>
+    <app-char-stats [class.open]="isSelected()" [guild]="guild()" />
   </div>
 </button>

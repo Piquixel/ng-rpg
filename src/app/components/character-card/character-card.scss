@@ -1,16 +1,20 @@
 @use '../../../variables' as v;
 @use '../../../mixins' as m;
 
-.card {
-  @include m.flex($gap: 1rem 0);
+:host {
+  height: 328px;
+}
+
+.interactContainer {
+  width: 100%;
   backdrop-filter: brightness(0.66);
   padding: 2rem 1rem;
   border-radius: v.$radiusLg;
-  height: 100%;
   box-shadow:
     0 0 0 1px rgb(255 255 255 / 0.08),
     0 2px 4px 0 rgb(0 0 0 / 0.5);
   overflow: hidden;
+  transform-origin: bottom;
   transition: 250ms ease-in-out;
   transition-property: box-shadow, transform, background;
 
@@ -28,34 +32,72 @@
       0 2px 8px 2px rgb(0 0 0 / 0.2);
     transform: scale(1.025);
     background-color: v.$InteractionSelected;
+
+    .card {
+      margin-top: -5rem;
+
+      app-char-stats {
+        margin-top: -2rem;
+      }
+
+      .labels-container {
+        height: 0;
+        opacity: 0;
+      }
+
+      h1,
+      p {
+        font-size: 0;
+        opacity: 0;
+      }
+    }
   }
 
-  .guild-icon {
-    font-size: 3.33rem;
-    margin-block: 1rem;
-  }
+  .card {
+    @include m.flex($gap: 1rem 0);
+    height: 100%;
+    transition: margin 250ms ease-in-out;
 
-  h4 {
-    font:
-      600 1.25rem/1.15 'Metamorphous',
-      serif;
-  }
+    app-char-stats {
+      transition: margin 250ms ease-in-out;
+    }
 
-  p {
-    font-size: 0.9rem;
-    opacity: 0.66;
-  }
+    .guild-icon {
+      font-size: 3.33rem;
+      margin-block: 1rem;
+    }
 
-  .labels-container {
-    @include m.flex(row, wrap, center, $gap: 0.5rem);
+    h4 {
+      font:
+        600 1.25rem/1.15 'Metamorphous',
+        serif;
+    }
 
-    span {
-      color: v.$HeadingSecondary;
+    p {
       font-size: 0.9rem;
-      background-color: color-mix(in srgb, transparent 75%, v.$HeadingPrimary);
-      padding: 0.33rem 1rem;
-      border: 1px solid rgb(255 255 255 / 0.08);
-      border-radius: 100em;
+      opacity: 0.66;
+    }
+
+    h1,
+    p {
+      transition: 250ms ease-in-out;
+      transition-property: opacity, font-size;
+    }
+
+    .labels-container {
+      @include m.flex(row, wrap, center, $gap: 0.5rem);
+      height: 100%;
+      transition: 250ms ease-in-out;
+      transition-property: opacity, height;
+
+      span {
+        color: v.$HeadingSecondary;
+        font-size: 0.9rem;
+        background-color: color-mix(in srgb, transparent 75%, v.$HeadingPrimary);
+        padding: 0.33rem 1rem;
+        border: 1px solid rgb(255 255 255 / 0.08);
+        border-radius: 100em;
+      }
     }
   }
 }

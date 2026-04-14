@@ -1,0 +1,80 @@
+@use '../../../variables' as v;
+@use '../../../mixins' as m;
+
+:host {
+  @include m.flex($gap: 1rem 0);
+  width: 60vw;
+  backdrop-filter: brightness(0.66);
+  overflow: hidden;
+  border-radius: v.$radiusLg;
+  border: 1px solid hsl(0 0% 100% / 0.08);
+  box-shadow: 0 2px 8px 0 rgb(0 0 0 / 0.5);
+  padding: 1.5rem;
+  font:
+    normal 0.9rem/1 'Poppins',
+    sans-serif;
+
+  hgroup {
+    @include m.flex(row, $justify: space-between);
+    width: 100%;
+
+    h1 {
+      font-size: 3.33rem;
+      margin: 0;
+    }
+
+    & > div {
+      @include m.flex(row);
+      text-align: left;
+      line-height: 1.15;
+
+      h3 {
+        font-weight: 700;
+        font-size: 1rem;
+      }
+
+      span {
+        opacity: 0.66;
+      }
+    }
+
+    & > span {
+      color: #e6eb19;
+      font-weight: 600;
+    }
+  }
+
+  .stats {
+    position: relative;
+    @include m.flex($gap: 0.33rem 0);
+    width: 100%;
+
+    & > * {
+      width: 100%;
+    }
+
+    label {
+      @include m.flex(row, $justify: space-between);
+    }
+
+    progress {
+      overflow: hidden;
+      border-radius: v.$radiusRound;
+      border: 1px solid hsl(0 0% 100% / 0.08);
+
+      &:not(:last-of-type) {
+        margin-bottom: 0.25rem;
+      }
+
+      &::-webkit-progress-bar {
+        background-color: hsl(0 0% 0% / 0.66);
+        padding: 2px;
+      }
+
+      &::-webkit-progress-value {
+        background-color: #1db91d;
+        border-radius: v.$radiusRound;
+      }
+    }
+  }
+}
