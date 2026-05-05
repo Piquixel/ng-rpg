@@ -3,3 +3,9 @@ export enum ClassType {
   Mage = 'MAGE',
   Rogue = 'ROGUE',
 }
+
+export const IconByClass = {
+  [ClassType.Mage]: '🔮',
+  [ClassType.Rogue]: '🗡️',
+  [ClassType.Warrior]: '⚔️',
+};

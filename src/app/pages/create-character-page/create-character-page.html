@@ -20,6 +20,7 @@
 <button
   [disabled]="charName.invalid || !selectedGuild"
   class="interactBtn interactBtn--primary"
-  routerLink="/game/map">
+  (click)="createCharacter()"
+  routerLink="/game/{{ charName.value }}/map">
   🚀 Begin Adventure!
 </button>

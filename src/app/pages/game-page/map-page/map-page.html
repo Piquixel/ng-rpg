@@ -1,4 +1,6 @@
-<app-player-stats />
+@let player = gameManager.currentPlayer();
+
+<app-player-stats [player]="player" />
 
 <hgroup>
   <h2>🗺️World Map</h2>
@@ -16,7 +18,7 @@
         </div>
       </div>
     </button>
-    <button disabled>
+    <button [disabled]="player.lvl < 3">
       <span>🏚️</span>
       <div>
         <div>
@@ -26,10 +28,12 @@
             <span style="--difficulty-level: #fbec5d">Average</span> Skeletons, Dark Mages, Lich
           </p>
         </div>
-        <span>🔒Niv.3</span>
+        @if (player.lvl < 3) {
+          <span>🔒Niv.3</span>
+        }
       </div>
     </button>
-    <button disabled>
+    <button [disabled]="player.lvl < 5">
       <span>🏔️</span>
       <div>
         <div>
@@ -37,7 +41,9 @@
           <span>Dangerous mountain inhabited by legendary creatures.</span>
           <p><span style="--difficulty-level: #cd5c5c">Hard</span> Harpy, Golems, Dragon</p>
         </div>
-        <span>🔒Niv.5</span>
+        @if (player.lvl < 5) {
+          <span>🔒Niv.5</span>
+        }
       </div>
     </button>
   </div>

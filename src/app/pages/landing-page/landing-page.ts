@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { PlayerService } from 'models/services/player.service';
 
 @Component({
   selector: 'app-landing-page',
@@ -7,4 +8,6 @@ import { RouterLink } from '@angular/router';
   templateUrl: './landing-page.html',
   styleUrl: './landing-page.scss',
 })
-export class LandingPage {}
+export class LandingPage {
+  public readonly playerService = inject(PlayerService);
+}

@@ -1,27 +1,33 @@
 <hgroup>
   <div>
-    <h1>⚔️</h1>
+    <h1>{{ iconByClass[player().type] }}</h1>
     <div>
-      <h3>ds</h3>
-      <span>Warrior - Niveau 1</span>
+      <h3>{{ player().nickname }}</h3>
+      <span>{{ player().type | titlecase }} - Niveau {{ player().lvl }}</span>
     </div>
   </div>
-  <span>💰50</span>
+  <span>💰{{ player().money }}</span>
 </hgroup>
 <div class="stats">
   <label for="hp-stats">
     <span>HP</span>
-    <span>120/120</span>
+    <span>{{ player().currentHP }}/{{ player().characteristics.hp }}</span>
   </label>
-  <progress id="hp-stats" max="120" value="120"></progress>
+  <progress
+    id="hp-stats"
+    [max]="player().characteristics.hp"
+    [value]="player().currentHP"></progress>
   <label for="mp-stats">
     <span>MP</span>
-    <span>30/30</span>
+    <span>{{ player().currentMP }}/{{ player().characteristics.mana }}</span>
   </label>
-  <progress id="mp-stats" max="30" value="30"></progress>
+  <progress
+    id="mp-stats"
+    [max]="player().characteristics.mana"
+    [value]="player().currentMP"></progress>
   <label for="exp-stats">
     <span>EXP</span>
-    <span>0/100</span>
+    <span>{{ player().currentXP }}/{{ player().lvl * 100 }}</span>
   </label>
-  <progress id="exp-stats" max="100" value="0"></progress>
+  <progress id="exp-stats" [max]="player().lvl * 100" [value]="player().currentXP"></progress>
 </div>

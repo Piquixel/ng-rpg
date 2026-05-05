@@ -14,13 +14,12 @@ export const routes: Routes = [
     component: CreateCharacterPage,
   },
   {
-    path: 'game',
+    path: 'game/:nickname',
     component: GamePage,
     children: [
       { path: 'map', title: 'Carte', component: MapPage },
       { path: 'city', title: 'Ville', component: CityPage },
       { path: 'inventory', title: 'Inventaire', component: InventoryPage },
-      { path: '**', redirectTo: 'map' },
     ],
   },
   { path: '**', redirectTo: 'landing' },

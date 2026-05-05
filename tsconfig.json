@@ -21,6 +21,7 @@
       "components/*": ["./src/app/components/*"],
       "data/*": ["./src/app/models/data/*"],
       "enums/*": ["./src/app/models/enums/*"],
+      "interfaces/*": ["./src/app/models/interfaces/*"],
       "models/*": ["./src/app/models/*"],
       "pages/*": ["./src/app/pages/*"]
     },
