@@ -1,0 +1,18 @@
+@for (zone of zones; track zone.id) {
+  <button [disabled]="lvl() < zone.minLevel" (click)="zoneSelected.emit(zone)">
+    <span>{{ zone.icon }}</span>
+    <div>
+      <div>
+        <h3>{{ zone.name }}</h3>
+        <span>{{ zone.description }}</span>
+        <p>
+          <span [style.color]="zone.difficultyColor">{{ zone.difficulty }}</span
+          >{{ zone.enemies }}
+        </p>
+      </div>
+      @if (lvl() < zone.minLevel) {
+        <span>🔒Niv.{{ zone.minLevel }}</span>
+      }
+    </div>
+  </button>
+}

@@ -1,13 +1,19 @@
 import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
+import { MapSelector } from 'components/map-selector/map-selector';
 import { PlayerStats } from 'components/player-stats/player-stats';
 import { GameManagerService } from 'models/services/game-manager.service';
 
 @Component({
   selector: 'app-map-page',
-  imports: [PlayerStats],
+  imports: [PlayerStats, MapSelector],
   templateUrl: './map-page.html',
   styleUrl: './map-page.scss',
 })
 export class MapPage {
   public gameManager = inject(GameManagerService);
+  public readonly router = inject(Router);
+  public redirectToFight(): void {
+    this.router.navigateByUrl('/game/combat');
+  }
 }

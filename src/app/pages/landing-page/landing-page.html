@@ -7,8 +7,11 @@
   <p class="titleContainer__subtitle">Play smart and win a prize</p>
 </hgroup>
 <button class="interactBtn interactBtn--primary" routerLink="/create-character">✨New Game</button>
-@if (playerService.hasSavedPlayers()) {
-  <button class="interactBtn interactBtn--primary">💾Continue Adventure</button>
+
+@for (player of playerService.getCurrentUsers(); track player.nickname) {
+  <button class="interactBtn interactBtn--primary" (click)="initGameWithSavedPlayer(player)">
+    {{ player.nickname }}
+  </button>
 }
 <div class="featuresGrid">
   <span class="featuresGrid__item">⚔️ Turn-based combat</span>

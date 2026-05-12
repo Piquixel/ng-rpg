@@ -12,7 +12,7 @@ export class GameManagerService {
   }
 
   public get isInit(): boolean {
-    return !!this._currentPlayer;
+    return this._currentPlayer != undefined;
   }
 
   public currentPlayer() {

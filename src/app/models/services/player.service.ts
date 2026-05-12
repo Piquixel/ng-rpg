@@ -7,7 +7,7 @@ import { Player } from 'interfaces/player.interface';
 export class PlayerService {
   private readonly _playerKey = 'PLAYER_KEY';
 
-  private _getCurrentUsers(): Player[] {
+  public getCurrentUsers(): Player[] {
     const currentPlayerStr = localStorage[this._playerKey];
     if (currentPlayerStr) {
       try {
@@ -20,7 +20,7 @@ export class PlayerService {
   }
 
   public add(player: Player) {
-    const currentPlayers = this._getCurrentUsers();
+    const currentPlayers = this.getCurrentUsers();
     const exist = this.getUserByName(player.nickname);
     if (!exist) {
       currentPlayers.push(player);
@@ -34,11 +34,11 @@ export class PlayerService {
   }
 
   public getUserByName(name: string): Player | undefined {
-    return this._getCurrentUsers()?.find(player => player.nickname === name);
+    return this.getCurrentUsers()?.find(player => player.nickname === name);
   }
 
   public hasSavedPlayers(): boolean {
-    return this._getCurrentUsers().length > 0;
+    return this.getCurrentUsers().length > 0;
   }
 
   // public save() {}
