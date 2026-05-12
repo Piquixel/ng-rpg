@@ -1,0 +1,21 @@
+:host {
+  display: block;
+  margin-top: 1rem;
+}
+
+.common-actions {
+  display: flex;
+  flex-wrap: nowrap;
+  padding-inline: 1rem;
+  gap: .5rem;
+
+  button {
+    padding-block: 1rem;
+    flex: 1 0 calc(50% - .5rem);
+    border-radius: 4px;
+
+    &:first-child {
+      background-color: coral;
+    }
+  }
+}

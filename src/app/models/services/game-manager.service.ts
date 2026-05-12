@@ -15,7 +15,7 @@ export class GameManagerService {
     return this._currentPlayer != undefined;
   }
 
-  public currentPlayer() {
+  public get currentPlayer(): Player {
     return this._currentPlayer!;
   }
 }

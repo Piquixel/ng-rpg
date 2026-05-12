@@ -11,4 +11,8 @@ import { GameManagerService } from 'models/services/game-manager.service';
 })
 export class GamePage {
   public readonly gameManager = inject(GameManagerService);
+
+  constructor() {
+    console.log(this.gameManager.currentPlayer)
+  }
 }
