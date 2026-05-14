@@ -6,8 +6,8 @@
   <h2>🗺️World Map</h2>
   <p>Choose a zone to fight in</p>
 </hgroup>
-<div class="container">
-  <div class="pickerContainer">
+<div>
+  <div>
     <app-map-selector (zoneSelected)="redirectToFight()" [lvl]="player.lvl" />
   </div>
   <span>

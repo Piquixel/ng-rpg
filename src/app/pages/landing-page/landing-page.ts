@@ -11,11 +11,11 @@ import { PlayerService } from 'models/services/player.service';
   styleUrl: './landing-page.scss',
 })
 export class LandingPage {
-  public readonly playerService = inject(PlayerService);
-  public readonly gameManager = inject(GameManagerService);
-  public readonly router = inject(Router);
+  public readonly playerService: PlayerService = inject(PlayerService);
+  public readonly gameManager: GameManagerService = inject(GameManagerService);
+  public readonly router: Router = inject(Router);
 
-  public initGameWithSavedPlayer(player: Player) {
+  public initGameWithSavedPlayer(player: Player): void {
     this.gameManager.initGame(player);
     this.router.navigateByUrl('/game');
   }

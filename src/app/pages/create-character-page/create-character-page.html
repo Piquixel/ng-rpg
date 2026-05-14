@@ -1,25 +1,19 @@
-<h2 class="title-2">⚔️ Create A Hero</h2>
-<div class="fieldContainer">
-  <label for="chara-input" class="fieldContainer__label">Hero's name</label>
-  <input
-    [formControl]="charName"
-    type="text"
-    placeholder="Name your hero…"
-    id="chara-input"
-    class="fieldContainer__field" />
+<h2>⚔️ Create A Hero</h2>
+<div>
+  <label for="chara-input">Hero's name</label>
+  <input [formControl]="charName" type="text" placeholder="Name your hero…" id="chara-input" />
 </div>
-<div class="cardsContainer">
-  <h3 class="title-3 title-3--label">Pick a Guild</h3>
-  @for (item of data; track item.description) {
+<div>
+  <h3>Pick a Guild</h3>
+  @for (guild of guildChoices; track guild.description) {
     <app-character-card
-      [isSelected]="selectedGuild === item"
-      [guild]="item"
-      (pick)="pickGuild(item)" />
+      [isSelected]="selectedGuild === guild"
+      [guild]="guild"
+      (cardSelect)="pickGuild(guild)" />
   }
 </div>
 <button
   [disabled]="charName.invalid || !selectedGuild"
-  class="interactBtn interactBtn--primary"
   (click)="createCharacter()"
   routerLink="/game/{{ charName.value }}/map">
   🚀 Begin Adventure!

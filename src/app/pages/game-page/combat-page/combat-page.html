@@ -1,5 +1,5 @@
 @if (gameManager.isInit) {
-  <div class="fight-main">
+  <div>
     <app-player-card [isPlayer]="true" />
     <h2>vs</h2>
     <app-player-card [isPlayer]="false" />
@@ -8,7 +8,7 @@
   <app-fight-history />
   <app-action-bar />
 } @else {
-  <div class="container">
+  <div>
     <h1>ERROR</h1>
   </div>
 }

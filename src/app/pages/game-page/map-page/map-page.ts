@@ -11,8 +11,8 @@ import { GameManagerService } from 'models/services/game-manager.service';
   styleUrl: './map-page.scss',
 })
 export class MapPage {
-  public gameManager = inject(GameManagerService);
-  public readonly router = inject(Router);
+  public gameManager: GameManagerService = inject(GameManagerService);
+  public readonly router: Router = inject(Router);
   public redirectToFight(): void {
     this.router.navigateByUrl('/game/combat');
   }

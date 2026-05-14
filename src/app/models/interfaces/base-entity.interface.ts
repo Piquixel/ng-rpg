@@ -1,19 +1,19 @@
 export interface BaseEntity {
-  characteristics: ICharacteristics;
-  name: string;
+  characteristics: Characteristics;
   description: string;
-}
-
-export interface ICharacteristics {
-  atk: number;
-  def: number;
-  speed: number;
-  hp: number;
-  mana: number;
+  name: string;
 }
 
 export interface BaseInstance {
+  currentHp: number;
+  currentMp: number;
   lvl: number;
-  currentHP: number;
-  currentMP: number;
+}
+
+interface Characteristics {
+  atk: number;
+  def: number;
+  hp: number;
+  mana: number;
+  speed: number;
 }

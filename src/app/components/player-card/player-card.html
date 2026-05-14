@@ -1,21 +1,24 @@
-<div class="card {{ isPlayer() ? 'player' : 'enemy' }} ">
+<div class="{{ isPlayer() ? 'player' : 'enemy' }} ">
   <h4>
     {{ isPlayer() ? player.nickname : 'Troll des Bois' }}
     @if (!isPlayer()) {
-      <span class='enemyTag'>{{ 'élite' | uppercase}}</span>
+      <span>{{ 'élite' | uppercase }}</span>
     }
   </h4>
   <span>{{ isPlayer() ? player.icon : '👹' }}</span>
   <label for="health">
     <span>PV</span>
-    <span>{{ isPlayer() ? player.currentHP + '/' + player.characteristics.hp : '100/100' }}</span>
+    <span>{{ isPlayer() ? player.currentHp + '/' + player.characteristics.hp : '100/100' }}</span>
   </label>
-  <progress id='health' [max]="isPlayer() ? player.characteristics.hp : '100'" [value]="isPlayer() ? player.currentHP : '100'"></progress>
+  <progress
+    id="health"
+    [max]="isPlayer() ? player.characteristics.hp : '100'"
+    [value]="isPlayer() ? player.currentHp : '100'"></progress>
   @if (isPlayer()) {
     <label for="magic">
       <span>PM</span>
-      <span>{{ player.currentMP + '/' + player.characteristics.mana }}</span>
+      <span>{{ player.currentMp + '/' + player.characteristics.mana }}</span>
     </label>
-    <progress id='magic' [max]="player.characteristics.mana" [value]="player.currentMP"></progress>
+    <progress id="magic" [max]="player.characteristics.mana" [value]="player.currentMp"></progress>
   }
 </div>

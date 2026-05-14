@@ -14,8 +14,8 @@ export const ENEMY_DATA: Enemy[] = [
     },
     race: EnemyRaceType.Goblin,
     lvl: 1,
-    currentHP: 30,
-    currentMP: 0,
+    currentHp: 30,
+    currentMp: 0,
     kind: 'normal',
   },
   {
@@ -30,8 +30,8 @@ export const ENEMY_DATA: Enemy[] = [
     },
     race: EnemyRaceType.Troll,
     lvl: 1,
-    currentHP: 80,
-    currentMP: 0,
+    currentHp: 80,
+    currentMp: 0,
     kind: 'normal',
   },
   {
@@ -46,8 +46,8 @@ export const ENEMY_DATA: Enemy[] = [
     },
     race: EnemyRaceType.Troll,
     lvl: 1,
-    currentHP: 80,
-    currentMP: 0,
+    currentHp: 80,
+    currentMp: 0,
     kind: 'normal',
   },
   {
@@ -62,8 +62,8 @@ export const ENEMY_DATA: Enemy[] = [
     },
     race: EnemyRaceType.Wolf,
     lvl: 1,
-    currentHP: 50,
-    currentMP: 0,
+    currentHp: 50,
+    currentMp: 0,
     kind: 'normal',
   },
 ];

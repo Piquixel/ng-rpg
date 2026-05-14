@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
-import { userSelectedGuard } from 'models/guards/user-activated.guard';
-import { userInactiveGuard } from 'models/guards/user-inactive.guard';
+import { userActiveGuard } from 'models/guards/userActive.guard';
+import { userInactiveGuard } from 'models/guards/userInactive.guard';
 import { CreateCharacterPage } from 'pages/create-character-page/create-character-page';
 import { CityPage } from 'pages/game-page/city-page/city-page';
 import { CombatPage } from 'pages/game-page/combat-page/combat-page';
@@ -18,8 +18,8 @@ export const routes: Routes = [
   },
   {
     path: 'game',
-    canActivate: [userSelectedGuard],
-    canActivateChild: [userSelectedGuard],
+    canActivate: [userActiveGuard],
+    canActivateChild: [userActiveGuard],
     component: GamePage,
     children: [
       { path: 'map', title: 'Carte', component: MapPage },

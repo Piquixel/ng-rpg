@@ -1,34 +1,21 @@
-<nav class="headerNav">
-  <h1 class="headerNav__title" routerLink="">⚔️Tails of Angular</h1>
-  <ul class="headerNav__list">
-    <li
-      class="headerNav__list__item"
-      routerLinkActive="active"
-      routerLink="/game/{{ player().nickname }}/map">
-      🗺️Carte
-    </li>
-    <li
-      class="headerNav__list__item"
-      routerLinkActive="active"
-      routerLink="/game/{{ player().nickname }}/city">
-      🏢Ville
-    </li>
-    <li
-      class="headerNav__list__item"
-      routerLinkActive="active"
-      routerLink="/game/{{ player().nickname }}/inventory">
+<nav>
+  <h1 routerLink="">⚔️Tails of Angular</h1>
+  <ul>
+    <li routerLinkActive="active" routerLink="/game/{{ player().nickname }}/map">🗺️Carte</li>
+    <li routerLinkActive="active" routerLink="/game/{{ player().nickname }}/city">🏢Ville</li>
+    <li routerLinkActive="active" routerLink="/game/{{ player().nickname }}/inventory">
       🎒Inventaire
     </li>
   </ul>
 </nav>
-<div class="headerMenu">
-  <div class="headerMenu__item headerMenu__item--stats">
-    <span class="headerMenu__item--stats__item" id="money">💰{{ player().money }}</span>
-    <span class="headerMenu__item--stats__item" id="level">Niv.{{ player().lvl }}</span>
-    <span class="headerMenu__item--stats__item" id="username">{{ player().nickname }}</span>
+<div>
+  <div>
+    <span>💰{{ player().money }}</span>
+    <span>Niv.{{ player().lvl }}</span>
+    <span>{{ player().nickname }}</span>
   </div>
-  <div class="headerMenu__item headerMenu__item--actions">
-    <button class="headerMenu__item--actions__item">Sauvegarder</button>
-    <button class="headerMenu__item--actions__item">Quitter</button>
+  <div>
+    <button>Sauvegarder</button>
+    <button>Quitter</button>
   </div>
 </div>

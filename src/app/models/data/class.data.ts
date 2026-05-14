@@ -1,7 +1,7 @@
 import { ClassType } from 'enums/class-type.enum';
-import { ICharacter } from 'models/interfaces/character.interface';
+import { Character } from 'models/interfaces/character.interface';
 
-export const USER_CHOICES_CLASS: ICharacter[] = [
+export const USER_CHOICES_CLASS: Character[] = [
   {
     type: ClassType.Warrior,
     icon: '⚔️',

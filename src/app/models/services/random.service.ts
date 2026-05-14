@@ -10,7 +10,7 @@ export class RandomService {
   private readonly _http: HttpClient = inject(HttpClient);
   private readonly _baseUrl: string = 'https://api.random.org/json-rpc/4/invoke';
   private readonly _apiKey: string = '635ecc74-cf44-44a2-a69a-3677e44f44a0';
-  public getRandom(): Observable<RandomResponse> {
+  public get randomInteger(): Observable<RandomResponse> {
     const body: RandomRequest = {
       jsonrpc: '2.0',
       method: 'generateIntegers',

@@ -1,14 +1,14 @@
-import { Component, input, output } from '@angular/core';
+import { Component, input, InputSignal, output, OutputEmitterRef } from '@angular/core';
 
 interface ZoneInfo {
-  id: string;
-  name: string;
   description: string;
-  icon: string;
   difficulty: string;
   difficultyColor: string;
-  minLevel: number;
   enemies: string;
+  icon: string;
+  id: string;
+  minLevel: number;
+  name: string;
 }
 
 @Component({
@@ -18,8 +18,8 @@ interface ZoneInfo {
   styleUrl: './map-selector.scss',
 })
 export class MapSelector {
-  public readonly lvl = input.required<number>();
-  public readonly zoneSelected = output<ZoneInfo>();
+  public readonly lvl: InputSignal<number> = input.required<number>();
+  public readonly zoneSelected: OutputEmitterRef<ZoneInfo> = output<ZoneInfo>();
 
   public readonly zones: ZoneInfo[] = [
     {

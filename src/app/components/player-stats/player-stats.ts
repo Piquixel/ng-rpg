@@ -1,5 +1,5 @@
 import { TitleCasePipe } from '@angular/common';
-import { Component, input } from '@angular/core';
+import { Component, input, InputSignal } from '@angular/core';
 import { IconByClass } from 'enums/class-type.enum';
 import { Player } from 'interfaces/player.interface';
 
@@ -10,7 +10,7 @@ import { Player } from 'interfaces/player.interface';
   styleUrl: './player-stats.scss',
 })
 export class PlayerStats {
-  public readonly player = input.required<Player>();
+  public readonly player: InputSignal<Player> = input.required<Player>();
 
   public readonly iconByClass = IconByClass;
 }

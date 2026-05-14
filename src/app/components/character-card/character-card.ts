@@ -1,6 +1,6 @@
-import { Component, input, output } from '@angular/core';
+import { Component, input, InputSignal, output, OutputEmitterRef } from '@angular/core';
 import { CharStats } from 'components/char-stats/char-stats';
-import { ICharacter } from 'models/interfaces/character.interface';
+import { Character } from 'interfaces/character.interface';
 
 @Component({
   selector: 'app-character-card',
@@ -9,7 +9,7 @@ import { ICharacter } from 'models/interfaces/character.interface';
   styleUrl: './character-card.scss',
 })
 export class CharacterCard {
-  public readonly isSelected = input.required<boolean>();
-  public readonly guild = input.required<ICharacter>();
-  public readonly pick = output();
+  public readonly isSelected: InputSignal<boolean> = input.required<boolean>();
+  public readonly guild: InputSignal<Character> = input.required<Character>();
+  public readonly cardSelect: OutputEmitterRef<void> = output();
 }

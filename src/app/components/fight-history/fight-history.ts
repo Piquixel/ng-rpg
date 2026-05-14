@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './fight-history.scss',
 })
 export class FightHistory {
-  public now = new Date();
+  public now: Date = new Date();
 }

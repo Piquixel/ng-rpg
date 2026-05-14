@@ -8,26 +8,26 @@
   </div>
   <span>💰{{ player().money }}</span>
 </hgroup>
-<div class="stats">
+<div>
   <label for="hp-stats">
     <span>HP</span>
-    <span>{{ player().currentHP }}/{{ player().characteristics.hp }}</span>
+    <span>{{ player().currentHp }}/{{ player().characteristics.hp }}</span>
   </label>
   <progress
     id="hp-stats"
     [max]="player().characteristics.hp"
-    [value]="player().currentHP"></progress>
+    [value]="player().currentHp"></progress>
   <label for="mp-stats">
     <span>MP</span>
-    <span>{{ player().currentMP }}/{{ player().characteristics.mana }}</span>
+    <span>{{ player().currentMp }}/{{ player().characteristics.mana }}</span>
   </label>
   <progress
     id="mp-stats"
     [max]="player().characteristics.mana"
-    [value]="player().currentMP"></progress>
+    [value]="player().currentMp"></progress>
   <label for="exp-stats">
     <span>EXP</span>
-    <span>{{ player().currentXP }}/{{ player().lvl * 100 }}</span>
+    <span>{{ player().currentXp }}/{{ player().lvl * 100 }}</span>
   </label>
-  <progress id="exp-stats" [max]="player().lvl * 100" [value]="player().currentXP"></progress>
+  <progress id="exp-stats" [max]="player().lvl * 100" [value]="player().currentXp"></progress>
 </div>

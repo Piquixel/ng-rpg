@@ -1,5 +1,5 @@
-import { Component, input } from '@angular/core';
-import { ICharacter } from 'models/interfaces/character.interface';
+import { Component, input, InputSignal } from '@angular/core';
+import { Character } from 'models/interfaces/character.interface';
 
 @Component({
   selector: 'app-char-stats',
@@ -8,5 +8,5 @@ import { ICharacter } from 'models/interfaces/character.interface';
   styleUrl: './char-stats.scss',
 })
 export class CharStats {
-  public readonly guild = input<ICharacter>();
+  public readonly guild: InputSignal<Character> = input.required<Character>();
 }

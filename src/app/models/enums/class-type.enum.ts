@@ -1,7 +1,7 @@
 export enum ClassType {
-  Warrior = 'WARRIOR',
   Mage = 'MAGE',
   Rogue = 'ROGUE',
+  Warrior = 'WARRIOR',
 }
 
 export const IconByClass = {

@@ -1,4 +1,5 @@
 import { inject, Injectable } from '@angular/core';
+import { ENEMY_DATA } from 'data/enemy.data';
 import { GameState } from 'enums/gameState.enum';
 import { Enemy } from 'interfaces/enemy.interface';
 import { Player } from 'interfaces/player.interface';
@@ -10,31 +11,42 @@ import { RandomService } from './random.service';
 export class GameManagerService {
   private _currentPlayer?: Player;
   private _gameState: GameState = GameState.NONE;
-  private _enemies?: Enemy;
-  private _Currentenemy?: Enemy;
-  private randoms: number[] = [];
-  private readonly randomService = inject(RandomService);
+  private _enemies: Enemy[] = ENEMY_DATA;
+  private _CurrentEnemy?: Enemy;
+  private _randomArray: number[] = [];
 
-  public initGame(player: Player) {
+  private readonly _random: RandomService = inject(RandomService);
+
+  public initGame(player: Player): void {
     this._currentPlayer = player;
-    this.randomService.getRandom().subscribe(res => {
-      this.randoms = res.result.random.data;
+    this._random.randomInteger.subscribe(res => {
+      this._randomArray = res.result.random.data;
     });
   }
 
+  public resetGame(): void {
+    delete this._currentPlayer;
+  }
+
   public get isInit(): boolean {
-    return this._currentPlayer != undefined;
+    return !!this._currentPlayer;
   }
 
   public get currentPlayer(): Player {
     return this._currentPlayer!;
   }
 
-  public startFight() {
+  public get currentEnemy(): Enemy {
+    return this._CurrentEnemy!;
+  }
+
+  public startFight(): void {
     this._gameState = GameState.FIGHT_INIT;
-    while (this._gameState != GameState.FIGHT_END) {
+    while (this._gameState !== GameState.FIGHT_END) {
+      console.log('Fight state => ', this._gameState);
       switch (this._gameState) {
         case GameState.FIGHT_INIT:
+          this._CurrentEnemy = this._enemies.shift();
           this._gameState = GameState.TURN_DECIDE;
           break;
         case GameState.TURN_DECIDE:
@@ -55,13 +67,11 @@ export class GameManagerService {
         default:
           this._gameState = GameState.FIGHT_END;
       }
-
-      // this._gameState = GameState.FIGHT_END;
     }
   }
 
   public handleTurnDecide(): GameState {
-    return this.currentPlayer.characteristics.speed >= this._Currentenemy!.characteristics.speed
+    return this.currentPlayer.characteristics.speed >= this._CurrentEnemy!.characteristics.speed
       ? GameState.PLAYER_TURN
       : GameState.ENEMY_TURN;
   }

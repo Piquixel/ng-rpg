@@ -1,6 +1,6 @@
 export enum EnemyRaceType {
-  Goblin = 'GOBLIN',
   Dragon = 'DRAGON',
+  Goblin = 'GOBLIN',
   Orc = 'ORC',
   Troll = 'TROLL',
   Wolf = 'WOLF',

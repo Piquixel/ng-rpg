@@ -4,10 +4,10 @@ import { RouterStateSnapshot, TitleStrategy } from '@angular/router';
 
 @Injectable()
 export class AppTitleStrategy extends TitleStrategy {
-  private readonly title = inject(Title);
+  private readonly title: Title = inject(Title);
 
   updateTitle(snapshot: RouterStateSnapshot): void {
-    const pageTitle = this.buildTitle(snapshot) || this.title.getTitle();
+    const pageTitle: string = this.buildTitle(snapshot) || this.title.getTitle();
     this.title.setTitle(`Tails of Angular | ${pageTitle}`);
   }
 }

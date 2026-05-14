@@ -1,11 +1,11 @@
-<button class="interactContainer" [class.selected]="isSelected()" (click)="pick.emit()">
-  <div class="card">
-    <h1 class="guild-icon">{{ guild().icon }}</h1>
+<button [class.selected]="isSelected()" (click)="cardSelect.emit()">
+  <div>
+    <h1>{{ guild().icon }}</h1>
     <h4>{{ guild().name }}</h4>
     <p>{{ guild().description }}</p>
-    <div class="labels-container">
-      @for (feature of guild().features; track feature) {
-        <span class="pill">{{ feature }}</span>
+    <div>
+      @for (feature of guild().features; track $index) {
+        <span>{{ feature }}</span>
       }
     </div>
     <app-char-stats [class.open]="isSelected()" [guild]="guild()" />

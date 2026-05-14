@@ -1,33 +1,33 @@
-export interface RandomResponse {
-  jsonrpc: string;
-  result: RandomResultEssentials;
-  id: number;
-}
-
-interface RandomResultEssentials {
-  random: RandomResultRandom;
-  bitsUsed: number;
-  bitsLeft: number;
-  requestsLeft: number;
-  advisoryDelay: number;
-}
-
-interface RandomResultRandom {
-  data: number[];
-  completionTime: string;
-}
-
 export interface RandomRequest {
+  id: number;
   jsonrpc: string;
   method: string;
-  params: ParamsEssentials;
-  id: number;
+  params: RequestParams;
 }
 
-interface ParamsEssentials {
+interface RequestParams {
   apiKey: string;
-  n: number;
-  min: number;
   max: number;
+  min: number;
+  n: number;
   replacement?: boolean;
+}
+
+export interface RandomResponse {
+  id: number;
+  jsonrpc: string;
+  result: RandomResult;
+}
+
+interface RandomResult {
+  advisoryDelay: number;
+  bitsLeft: number;
+  bitsUsed: number;
+  random: RandomResultArray;
+  requestsLeft: number;
+}
+
+interface RandomResultArray {
+  data: number[];
+  completionTime: string;
 }

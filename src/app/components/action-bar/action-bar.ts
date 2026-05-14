@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
 
 interface TypeActions {
+  cost: number;
   icon: string;
   name: string;
-  cost: string;
 }
 
 interface InventoryActions {
   icon: string;
+  quantity: number;
   name: string;
-  quantity: string;
 }
 
 @Component({
@@ -21,36 +21,26 @@ interface InventoryActions {
 export class ActionBar {
   public readonly typeAction: TypeActions[] = [
     {
+      cost: 10,
       icon: '⚔️',
       name: 'Taillade',
-      cost: '10',
     },
     {
-      icon: '⚔️',
-      name: 'Taillade',
-      cost: '10',
+      cost: 15,
+      icon: '🛡️',
+      name: 'Coup de bouclier',
     },
     {
-      icon: '⚔️',
-      name: 'Taillade',
-      cost: '10',
+      cost: 20,
+      icon: '📯',
+      name: 'Cri de Guerre',
     },
   ];
   public readonly InventoryAction: InventoryActions[] = [
     {
-      icon: '⚔️',
+      icon: '',
+      quantity: 3,
       name: 'Taillade',
-      quantity: '10',
-    },
-    {
-      icon: '⚔️',
-      name: 'Taillade',
-      quantity: '10',
-    },
-    {
-      icon: '⚔️',
-      name: 'Taillade',
-      quantity: '10',
     },
   ];
 }

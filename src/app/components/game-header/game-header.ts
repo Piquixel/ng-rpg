@@ -1,4 +1,4 @@
-import { Component, inject, input } from '@angular/core';
+import { Component, inject, input, InputSignal } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { Player } from 'interfaces/player.interface';
 
@@ -9,6 +9,6 @@ import { Player } from 'interfaces/player.interface';
   styleUrl: './game-header.scss',
 })
 export class GameHeader {
-  public readonly router = inject(Router);
-  public readonly player = input.required<Player>();
+  public readonly router: Router = inject(Router);
+  public readonly player: InputSignal<Player> = input.required<Player>();
 }

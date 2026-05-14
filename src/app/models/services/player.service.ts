@@ -5,42 +5,42 @@ import { Player } from 'interfaces/player.interface';
   providedIn: 'root',
 })
 export class PlayerService {
-  private readonly _playerKey = 'PLAYER_KEY';
+  private readonly _playerKey: string = 'PLAYER_KEY';
 
-  public getCurrentUsers(): Player[] {
-    const currentPlayerStr = localStorage[this._playerKey];
-    if (currentPlayerStr) {
+  public add(player: Player): void {
+    const playerList: Player[] = this.savedPlayers;
+    const exist: boolean = this.getPlayerByName(player.nickname) !== undefined;
+    if (!exist) {
+      playerList.push(player);
       try {
-        return JSON.parse(currentPlayerStr) as Player[];
+        const toSave: string = JSON.stringify(playerList);
+        localStorage[this._playerKey] = toSave;
       } catch (err) {
-        console.error(err);
+        console.error('Failed to save player: ', err);
+      }
+    }
+  }
+
+  public get savedPlayers(): Player[] {
+    const playerStorageValue: string = localStorage[this._playerKey];
+    if (playerStorageValue) {
+      try {
+        return JSON.parse(playerStorageValue) as Player[];
+      } catch (err) {
+        console.error('Failed to fetch saved players: ', err);
       }
     }
     return [];
   }
 
-  public add(player: Player) {
-    const currentPlayers = this.getCurrentUsers();
-    const exist = this.getUserByName(player.nickname);
-    if (!exist) {
-      currentPlayers.push(player);
-      try {
-        const toSave = JSON.stringify(currentPlayers);
-        localStorage[this._playerKey] = toSave;
-      } catch (err) {
-        console.error(err);
-      }
-    }
+  public getPlayerByName(name: string): Player | undefined {
+    return this.savedPlayers?.find(p => p.nickname === name);
   }
 
-  public getUserByName(name: string): Player | undefined {
-    return this.getCurrentUsers()?.find(player => player.nickname === name);
+  public get hasSavedPlayers(): boolean {
+    return this.savedPlayers.length > 0;
   }
 
-  public hasSavedPlayers(): boolean {
-    return this.getCurrentUsers().length > 0;
-  }
-
-  // public save() {}
-  // public delete() {}
+  // public save(): void {}
+  // public delete(): void {}
 }
