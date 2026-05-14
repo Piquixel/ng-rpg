@@ -12,4 +12,8 @@ import { GameManagerService } from 'models/services/game-manager.service';
 })
 export class CombatPage {
   public readonly gameManager = inject(GameManagerService);
+
+  constructor() {
+    this.gameManager.startFight();
+  }
 }

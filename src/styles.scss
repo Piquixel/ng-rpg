@@ -9,74 +9,15 @@ html {
 }
 
 body {
+  position: relative;
   @include m.flex($justify: center);
-  text-align: center;
   background-color: v.$backgroundPrimary;
-  font:
-    normal 0.9rem/1 'Poppins',
-    sans-serif;
-
-  .backgroundContainer {
-    pointer-events: none;
-    position: fixed;
-    inset: 0;
-    // opacity: 0.8;
-    animation: rotate 30s linear 0s infinite forwards normal;
-    filter: blur(64px);
-    z-index: -1;
-
-    &__shape {
-      mix-blend-mode: color-dodge;
-      position: absolute;
-      aspect-ratio: 1;
-      width: var(--base-width, 550px);
-      height: auto;
-      background-color: v.$backgroundSecondary;
-      border-radius: 50%;
-      inset: calc(0px - var(--base-width) / var(--offset));
-
-      &:first-child {
-        --base-width: 33vh;
-        --offset: 5;
-
-        bottom: unset;
-        right: unset;
-
-        @include k.grow(var(--base-width), 5s, 250ms, var(--offset));
-      }
-
-      &:nth-child(2) {
-        --base-width: 66vh;
-        --offset: 3;
-
-        bottom: unset;
-        left: unset;
-        @include k.grow(var(--base-width), 10s, 500ms, var(--offset));
-      }
-
-      &:nth-child(3) {
-        --base-width: 99vh;
-        --offset: 4;
-
-        top: unset;
-        left: unset;
-        @include k.grow(var(--base-width), 15s, 750ms, var(--offset));
-      }
-
-      &:last-child {
-        --base-width: 132vh;
-        --offset: 6;
-
-        top: unset;
-        right: unset;
-        @include k.grow(var(--base-width), 20s, 1s, var(--offset));
-      }
-    }
-  }
+  padding: 2rem;
+  font: v.$fontBody;
 
   .titleContainer {
     @include m.flex;
-    text-shadow: 0 4px 6px rgb(0 0 0 / 0.5);
+    text-shadow: 0 2px 8px rgb(0 0 0 / 0.4);
 
     &__title {
       color: v.$HeadingPrimary;
@@ -95,17 +36,24 @@ body {
     &__subtitle {
       color: color-mix(in srgb, #fff 50%, v.$HeadingPrimary);
       font:
-        normal 1.15rem/1 'Metamorphous',
-        serif;
+        bold 1.15rem/0.33 'Overlock SC',
+        sans-serif;
+      letter-spacing: 0.075rem;
     }
   }
 }
 
 .title-1 {
   font:
-    700 3.33rem/1 'Skranji',
+    700 3.33rem/0.5 'Skranji',
     system-ui;
-  margin-block: 1rem;
+  letter-spacing: 0.05rem;
+  word-spacing: -0.33rem;
+
+  &--inline {
+    font-size: 2.25rem;
+    line-height: 1.5;
+  }
 }
 
 .title-2 {
@@ -117,30 +65,35 @@ body {
 .title-3 {
   font-weight: 600;
   letter-spacing: 0.025rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: v.$radiusXS;
 
   &--label {
     font-size: 1.25rem;
-    // width: fit-content;
+    background-color: v.$InteractionSecondary;
+    width: fit-content;
+    font-family: 'Overlock SC', sans-serif;
+    letter-spacing: 0.05rem;
   }
 }
 
 button:disabled {
   cursor: not-allowed;
-  opacity: 0.5;
+  opacity: 0.66;
 }
 
 .interactBtn {
   position: relative;
   padding-block: 1.33rem;
   font: v.$fontDefault;
-  letter-spacing: 0.02rem;
-  border-radius: v.$radiusMd;
+  letter-spacing: 0.033rem;
+  border-radius: v.$radiusSm;
+  border: v.$interactBorder;
   width: 100%;
-  box-shadow: 0 2px 2px 0 rgb(0 0 0 / 0.5);
+  box-shadow: 0 2px 4px rgb(0 0 0 / 0.4);
   overflow: hidden;
   transition: 250ms ease 0s;
   transition-property: background, transform, box-shadow, filter, letter-spacing;
-  z-index: 0;
 
   &:disabled {
     background: unset;
@@ -185,18 +138,23 @@ button:disabled {
 }
 
 .fieldContainer {
-  @include m.flex($align: flex-start, $gap: 0.5rem 0);
+  @include m.flex($align: stretch);
 
   &__label {
     position: relative;
-    font-size: 0.875rem;
-    color: hsl(0, 0%, 80%);
-    left: 0;
+    background-color: v.$InteractionSecondary;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.85rem;
+    margin-bottom: -0.5rem;
+    z-index: 1;
+    border-radius: v.$radiusXS;
+    width: fit-content;
   }
 
   &__field {
     padding: 0.85rem;
-    width: 100%;
+    margin-inline: 0.5rem;
+    box-shadow: inset 0 0 6px hsl(0 0% 0% / 0.2);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;

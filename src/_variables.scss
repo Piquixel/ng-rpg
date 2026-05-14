@@ -7,6 +7,8 @@ $InteractionSecondary: #f56fa1;
 $HeadingPrimary: #cfb53b;
 $HeadingSecondary: #e4d00a;
 
+$interactBorder: 2px solid hsl(0 0% 0% / 0.2);
+
 $InteractionHover: color.change($InteractionSecondary, $alpha: 0.05);
 $InteractionSelected: color.change($InteractionPrimary, $alpha: 0.1);
 
@@ -19,4 +21,7 @@ $radiusRound: 100em;
 
 $fontDefault:
   normal 1rem/1 'Poppins',
+  sans-serif;
+$fontBody:
+  normal 0.9rem/1 'Poppins',
   sans-serif;

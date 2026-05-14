@@ -9,7 +9,7 @@
   width: 100%;
   backdrop-filter: brightness(0.66);
   padding: 2rem 1rem;
-  border-radius: v.$radiusLg;
+  border-radius: v.$radiusMd;
   box-shadow:
     0 0 0 1px rgb(255 255 255 / 0.08),
     0 2px 4px 0 rgb(0 0 0 / 0.5);
@@ -69,8 +69,8 @@
 
     h4 {
       font:
-        600 1.25rem/1.15 'Metamorphous',
-        serif;
+        600 1.25rem/1.15 'Overlock SC',
+        sans-serif;
     }
 
     p {

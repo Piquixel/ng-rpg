@@ -1,0 +1,59 @@
+@use '../variables' as v;
+@use '../keyframes' as k;
+
+.backgroundContainer {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  animation: rotate 30s linear 0s infinite forwards normal;
+  filter: blur(64px);
+  z-index: -1;
+
+  &__shape {
+    mix-blend-mode: color-dodge;
+    position: absolute;
+    aspect-ratio: 1;
+    width: var(--base-width, 550px);
+    height: auto;
+    background-color: v.$backgroundSecondary;
+    border-radius: 50%;
+    inset: calc(0px - var(--base-width) / var(--offset));
+
+    &:first-child {
+      --base-width: 33vh;
+      --offset: 5;
+
+      bottom: unset;
+      right: unset;
+
+      @include k.grow(var(--base-width), 5s, 250ms, var(--offset));
+    }
+
+    &:nth-child(2) {
+      --base-width: 66vh;
+      --offset: 3;
+
+      bottom: unset;
+      left: unset;
+      @include k.grow(var(--base-width), 10s, 500ms, var(--offset));
+    }
+
+    &:nth-child(3) {
+      --base-width: 99vh;
+      --offset: 4;
+
+      top: unset;
+      left: unset;
+      @include k.grow(var(--base-width), 15s, 750ms, var(--offset));
+    }
+
+    &:last-child {
+      --base-width: 132vh;
+      --offset: 6;
+
+      top: unset;
+      right: unset;
+      @include k.grow(var(--base-width), 20s, 1s, var(--offset));
+    }
+  }
+}

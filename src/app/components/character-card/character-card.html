@@ -4,7 +4,7 @@
     <h4>{{ guild().name }}</h4>
     <p>{{ guild().description }}</p>
     <div class="labels-container">
-      @for (feature of guild().features; track $index) {
+      @for (feature of guild().features; track feature) {
         <span class="pill">{{ feature }}</span>
       }
     </div>

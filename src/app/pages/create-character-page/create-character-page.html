@@ -1,15 +1,15 @@
-<h2 class="title-2">⚔️ Character Creation</h2>
+<h2 class="title-2">⚔️ Create A Hero</h2>
 <div class="fieldContainer">
-  <label for="chara-input" class="fieldContainer__label">Character's name</label>
+  <label for="chara-input" class="fieldContainer__label">Hero's name</label>
   <input
     [formControl]="charName"
     type="text"
-    placeholder="Pick a name for your hero…"
+    placeholder="Name your hero…"
     id="chara-input"
     class="fieldContainer__field" />
 </div>
-<h3 class="title-3 title-3--label">Pick a Guild</h3>
 <div class="cardsContainer">
+  <h3 class="title-3 title-3--label">Pick a Guild</h3>
   @for (item of data; track item.description) {
     <app-character-card
       [isSelected]="selectedGuild === item"

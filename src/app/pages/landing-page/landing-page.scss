@@ -6,16 +6,19 @@
 }
 
 .featuresGrid {
+  width: 100%;
+  text-align: center;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0.5rem;
 
   &__item {
     padding: 1rem;
-    backdrop-filter: brightness(0.75) blur(44px);
+    background-color: hsl(0 0% 0% / 0.2);
+    backdrop-filter: blur(5px);
     border-radius: v.$radiusSm;
     overflow: hidden;
-    border: 1px solid rgb(255 255 255 / 0.08);
+    border: 1px solid rgb(255 255 255 / 0.1);
     box-shadow: 0 2px 4px 0 rgb(0 0 0 / 0.2);
     font:
       normal 0.8rem/1 'Poppins',
