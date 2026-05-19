@@ -4,9 +4,10 @@
 :host {
   @include m.flex($gap: 1rem 0);
   width: 60vw;
-  backdrop-filter: brightness(0.66);
+  backdrop-filter: contrast(1.15) brightness(1.1) blur(44px);
+  background-color: hsl(0 0% 0% / 0.2);
   overflow: hidden;
-  border-radius: v.$radiusLg;
+  border-radius: v.$radiusMd;
   border: 1px solid hsl(0 0% 100% / 0.08);
   box-shadow: 0 2px 8px 0 rgb(0 0 0 / 0.5);
   padding: 1.5rem;
@@ -36,11 +37,6 @@
       span {
         opacity: 0.66;
       }
-    }
-
-    & > span {
-      color: #e6eb19;
-      font-weight: 600;
     }
   }
 

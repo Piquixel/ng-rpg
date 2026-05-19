@@ -4,27 +4,37 @@
 :host {
   width: 100%;
   opacity: 0;
-  transition: opacity 250ms ease-in-out;
+  margin-top: -3.33rem;
+  transform: translateY(1rem);
+  overflow: hidden;
+  transition: 250ms ease-in-out;
+  transition-property: opacity, transform, margin;
 
   &.open {
     opacity: 1;
-  }
-}
+    margin-top: 0;
+    transform: translateY(0);
 
-.statsContainer {
-  &__content {
-    &__table {
-      margin-top: 0.5rem;
-      background-color: rgb(255 255 255 / 0.08);
-      border-radius: v.$radiusMd;
+    .statsContainer {
+      height: 150px;
     }
+  }
 
-    &__row {
+  .statsContainer {
+    position: relative;
+    @include m.flex($gap: 0.5rem 0);
+    padding: 1.25rem 1rem 1rem;
+    margin-inline: 0.5rem;
+    height: 0;
+    overflow: hidden;
+    border: 1px solid rgb(255 255 255 / 0.08);
+    border-radius: v.$radiusSm;
+    background-color: hsl(0 0% 0% / 0.2);
+    transition: height 300ms ease-out;
+
+    .statRow {
       @include m.flex(row, $justify: space-between);
-      padding: 0.5rem 0.66rem;
-      &:not(:last-child) {
-        border-bottom: 1px solid rgb(255 255 255 / 0.08);
-      }
+      width: 100%;
     }
   }
 }

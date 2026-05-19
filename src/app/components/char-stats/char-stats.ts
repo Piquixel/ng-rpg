@@ -8,5 +8,5 @@ import { Character } from 'models/interfaces/character.interface';
   styleUrl: './char-stats.scss',
 })
 export class CharStats {
-  public readonly guild: InputSignal<Character> = input.required<Character>();
+  public readonly guild: InputSignal<Character | undefined> = input<Character>();
 }

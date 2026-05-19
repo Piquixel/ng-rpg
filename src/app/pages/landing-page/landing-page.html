@@ -1,21 +1,28 @@
-<hgroup>
-  <img src="/katana-sword.svg" alt="Crossed katana swords" />
-  <h1>Tails of Angular</h1>
-  <p>Play smart, win big</p>
+<hgroup class="titleContainer">
+  <img class="titleContainer__branding" src="/compass.png" alt />
+  <h1 class="titleContainer__title headingLv1">Tails of Angular</h1>
+  <p class="titleContainer__subtitle">Play smart, win big</p>
 </hgroup>
-<div>
-  <button routerLink="/create-character">✨New Game</button>
-  <div>
-    @for (player of playerService.savedPlayers; track player.nickname) {
-      <button (click)="initGameWithSavedPlayer(player)">
-        {{ player.nickname }}
-      </button>
-    }
+<div class="mainMenu">
+  <button class="btnPrimary" routerLink="/create-character">✨New Adventure</button>
+  <hr class="divider" />
+  @if (playerService.hasSavedPlayers) {
+    <span class="mainMenu__title">Load an Adventure</span>
+    <div class="mainMenu__subContainer">
+      @for (player of playerService.savedPlayers; track player.nickname) {
+        <button class="btnUtility" (click)="initGameWithSavedPlayer(player)">
+          {{ player.icon }} {{ player.nickname }}
+          <hr />
+          <span>Level {{ player.lvl }}</span>
+        </button>
+      }
+    </div>
+    <hr class="divider" />
+  }
+  <div class="featureGrid">
+    <span class="featureGrid__item">⚔️ Turn-based combat</span>
+    <span class="featureGrid__item">🧙‍♀️ 3 playable guilds</span>
+    <span class="featureGrid__item">🌳 3 exploration zones</span>
+    <span class="featureGrid__item">🛍️ Inventory et shops</span>
   </div>
-</div>
-<div>
-  <span>⚔️ Turn-based combat</span>
-  <span>🧙‍♀️ 3 playable guilds</span>
-  <span>🌳 3 exploration zones</span>
-  <span>🛍️ Inventory et shops</span>
 </div>

@@ -4,37 +4,55 @@
 :host {
   @include m.flex(row, $justify: space-between);
   width: 100%;
-  font:
-    normal 0.9rem/1 'Poppins',
-    sans-serif;
+  background-color: hsl(0 0% 0% / 0.2);
+  border: 1px solid hsl(0 0% 100% / 0.08);
+  border-radius: v.$radiusMd;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 0.2);
+  backdrop-filter: contrast(1.15) brightness(1.1) blur(44px);
+  padding-inline: 1.5rem;
 
   & > * {
-    @include m.flex(row, $gap: 0 1.5rem);
+    @include m.flex(row, $gap: 0 1rem);
 
     & > * {
-      @include m.flex(row, $gap: 0 1rem);
+      @include m.flex(row, $gap: 0 0.5rem);
     }
   }
 
-  .headerNav {
+  nav {
     position: relative;
 
-    &__title {
-      font:
-        700 1.66rem/1 'Skranji',
-        system-ui;
+    h1 {
+      margin-block: 1rem;
     }
 
-    &__list {
+    ul {
       position: relative;
       height: 100%;
 
-      &__item {
-        cursor: pointer;
-        line-height: 24px;
+      li {
+        position: relative;
+        @include m.flex(row, $justify: center);
 
-        &.active {
-          border-bottom: 1px solid v.$InteractionPrimary;
+        &::before {
+          content: '';
+          pointer-events: none;
+          position: absolute;
+          bottom: 0;
+          opacity: 0;
+          border-radius: v.$radiusRound;
+          width: 24px;
+          height: 2px;
+          background-color: v.$accentColor;
+          z-index: -1;
+          border: 1px solid hsl(0 0% 100% / 0.16);
+          transition: 250ms ease-out;
+          transition-property: bottom, opacity;
+        }
+
+        &:has(> .active)::before {
+          opacity: 1;
+          bottom: -0.5rem;
         }
       }
     }

@@ -6,31 +6,31 @@
 
 /* ---- Globally ---- */
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	user-select: none;
-	outline: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+  outline: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 
 /* ---- HTML ---- */
 html {
-	overflow-x: hidden;
-	scroll-behavior: smooth;
-	font-smooth: always;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  font-smooth: always;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* ---- Body ---- */
 body {
-	min-height: 100vh;
-	line-height: 1;
-	-webkit-text-size-adjust: 100%;
+  min-height: 100vh;
+  line-height: 1;
+  -webkit-text-size-adjust: 100%;
 }
 
 /* ---- Blocks ---- */
@@ -47,34 +47,34 @@ main,
 menu,
 nav,
 section {
-	display: block;
+  display: block;
 }
 
 /* ---- Lists ---- */
 ol,
 ul {
-	list-style: none;
-	list-style-type: none;
+  list-style: none;
+  list-style-type: none;
 }
 
 /* ---- Quotes ---- */
 blockquote,
 q {
-	quotes: none;
+  quotes: none;
 }
 
 blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-	content: '';
-	content: none;
+  content: '';
+  content: none;
 }
 
 /* ---- Tables ---- */
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 /* ---- Form ---- */
@@ -83,7 +83,7 @@ input,
 optgroup,
 select,
 textarea {
-	appearance: none;
+  appearance: none;
 }
 
 [type='button']:not(:disabled),
@@ -91,15 +91,15 @@ textarea {
 [type='submit']:not(:disabled),
 button:not(:disabled),
 label[for]:not(:disabled) {
-	cursor: pointer;
+  cursor: pointer;
 }
 
 /* ---- Anchor ---- */
 a {
-	color: inherit;
-	display: inline-block;
-	text-decoration: none;
-	background: none;
+  color: inherit;
+  display: inline-block;
+  text-decoration: none;
+  background: none;
 }
 
 /* ---- Images ---- */
@@ -108,12 +108,12 @@ picture,
 video,
 canvas,
 svg {
-	display: block;
-	max-width: 100%;
-	max-height: 100%;
-	object-fit: contain;
-	object-position: center;
-	border-style: none;
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  object-position: center;
+  border-style: none;
 }
 
 /* ---- Paragraph ---- */
@@ -124,18 +124,19 @@ h3,
 h4,
 h5,
 h6 {
-	overflow-wrap: break-word;
-	hyphens: auto;
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
 
 /* ---- Horizontal Rule ---- */
 hr {
-	box-sizing: content-box;
-	height: 0;
-	border: 0;
-	border-top: 1px solid #ccc;
-	overflow: visible;
-	margin-block: 1em;
+  box-sizing: content-box;
+  height: 0;
+  border: 0;
+  border-top: 1px solid;
+  border-color: currentColor;
+  overflow: visible;
+  margin-block: 1em;
 }
 
 /* ---- Code ---- */
@@ -143,17 +144,17 @@ code,
 kbd,
 pre,
 samp {
-	white-space: pre-wrap;
-	word-wrap: break-word;
-	font-family: monospace, monospace;
-	font-size: 1em;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-family: monospace, monospace;
+  font-size: 1em;
 }
 
 /* ---- Abbreviation ---- */
 abbr[title] {
-	border-bottom: none;
-	text-decoration: underline;
-	text-decoration: underline dotted;
+  border-bottom: none;
+  text-decoration: underline;
+  text-decoration: underline dotted;
 }
 
 /* ---- Mark ---- */
@@ -166,27 +167,27 @@ abbr[title] {
 /* ---- Strong ---- */
 b,
 strong {
-	font-weight: bold;
+  font-weight: bold;
 }
 
 /* ---- Small ---- */
 small {
-	font-size: 80%;
+  font-size: 80%;
 }
 
 /* ---- Subscript ---- */
 sub,
 sup {
-	font-size: 75%;
-	line-height: 0;
-	position: relative;
-	vertical-align: baseline;
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
 }
 
 sub {
-	bottom: -0.25em;
+  bottom: -0.25em;
 }
 
 sup {
-	top: -0.5em;
+  top: -0.5em;
 }

@@ -1,19 +1,24 @@
+// Imports
 @use 'sass:color';
 
+$accentColor: #ac1e44;
+
+// Colours
 $backgroundPrimary: #301934;
 $backgroundSecondary: #66023c;
-$InteractionPrimary: #e3266b;
-$InteractionSecondary: #f56fa1;
-$HeadingPrimary: #cfb53b;
-$HeadingSecondary: #e4d00a;
+
+$headingPrimary: #dc143c;
+$headingSecondary: #ff91a4;
 
 $interactBorder: 2px solid hsl(0 0% 0% / 0.2);
 
-$InteractionHover: color.change($InteractionSecondary, $alpha: 0.05);
-$InteractionSelected: color.change($InteractionPrimary, $alpha: 0.1);
+$moneyColor: #cba135;
 
-$radiusXS: 0.25rem;
-$radiusSm: 0.33rem;
+// $InteractionHover: color.change($InteractionSecondary, $alpha: 0.05);
+// $InteractionSelected: color.change($InteractionPrimary, $alpha: 0.1);
+
+$radiusXS: 0.125rem;
+$radiusSm: 0.25rem;
 $radiusMd: 0.5rem;
 $radiusLg: 1rem;
 $radiusXL: 2rem;
@@ -25,3 +30,6 @@ $fontDefault:
 $fontBody:
   normal 0.9rem/1 'Poppins',
   sans-serif;
+
+$fontTitle: 'Skranji', system-ui;
+$fontSubtitle: 'Overlock SC', sans-serif;

@@ -1,10 +1,9 @@
 import { Component, input, InputSignal, output, OutputEmitterRef } from '@angular/core';
-import { CharStats } from 'components/char-stats/char-stats';
 import { Character } from 'interfaces/character.interface';
 
 @Component({
   selector: 'app-character-card',
-  imports: [CharStats],
+  imports: [],
   templateUrl: './character-card.html',
   styleUrl: './character-card.scss',
 })

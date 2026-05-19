@@ -1,7 +1,38 @@
+@use './variables' as v;
+
 @mixin flex($direction: column, $wrap: nowrap, $justify: normal, $align: center, $gap: 0) {
   display: flex;
   flex-flow: $direction $wrap;
   justify-content: $justify;
   align-items: $align;
   gap: $gap;
+}
+
+@mixin btn {
+  position: relative;
+  padding: 0.5rem 1rem;
+  border-radius: v.$radiusXS;
+  // box-shadow: 0 4px 12px hsl(0 0% 0% / 0.2);
+  border: 1px solid hsl(0 0% 100% / 0.08);
+  background-color: v.$accentColor;
+  letter-spacing: 0.033rem;
+  transition: 250ms ease-in-out;
+  transition-property: background, opacity, filter, color;
+  max-width: 360px;
+
+  &:hover:not(:disabled) {
+    background-color: color-mix(in oklch, v.$accentColor 80%, #000);
+  }
+
+  &:disabled {
+    opacity: 0.8;
+    filter: grayscale(0.33);
+  }
+}
+
+@mixin title {
+  color: v.$headingPrimary;
+  letter-spacing: 0.05rem;
+  word-spacing: -0.33rem;
+  text-shadow: 0 2px 8px rgb(0 0 0 / 0.4);
 }

@@ -1,13 +1,12 @@
-<button [class.selected]="isSelected()" (click)="cardSelect.emit()">
-  <div>
-    <h1>{{ guild().icon }}</h1>
-    <h4>{{ guild().name }}</h4>
-    <p>{{ guild().description }}</p>
-    <div>
+<button class="btnContainer" [class.selected]="isSelected()" (click)="cardSelect.emit()">
+  <div class="card">
+    <span id="guild-icon">{{ guild().icon }}</span>
+    <h3 id="guild-name">{{ guild().name }}</h3>
+    <p id="guild-description">{{ guild().description }}</p>
+    <div id="guild-features">
       @for (feature of guild().features; track $index) {
-        <span>{{ feature }}</span>
+        <span class="feature">{{ feature }}</span>
       }
     </div>
-    <app-char-stats [class.open]="isSelected()" [guild]="guild()" />
   </div>
 </button>

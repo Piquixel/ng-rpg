@@ -1,20 +1,30 @@
-<h2>⚔️ Create A Hero</h2>
+<h2 class="headingLv2">⚔️ New Adventure</h2>
+
 <div>
-  <label for="chara-input">Hero's name</label>
-  <input [formControl]="charName" type="text" placeholder="Name your hero…" id="chara-input" />
+  <fieldset>
+    <legend>Choose a name for your hero</legend>
+    <input [formControl]="playerName" type="text" placeholder="Name your hero…" id="chara-input" />
+  </fieldset>
+  <fieldset>
+    <legend>Pick a guild</legend>
+    <div class="cardsContainer">
+      @for (guild of guildChoices; track guild.description) {
+        <app-character-card
+          [isSelected]="selectedGuild === guild"
+          [guild]="guild"
+          (cardSelect)="pickGuild(guild)" />
+      }
+    </div>
+  </fieldset>
+  <fieldset>
+    <app-char-stats [class.open]="selectedGuild" [guild]="selectedGuild" />
+  </fieldset>
 </div>
-<div>
-  <h3>Pick a Guild</h3>
-  @for (guild of guildChoices; track guild.description) {
-    <app-character-card
-      [isSelected]="selectedGuild === guild"
-      [guild]="guild"
-      (cardSelect)="pickGuild(guild)" />
-  }
-</div>
+
 <button
-  [disabled]="charName.invalid || !selectedGuild"
+  class="btnPrimary"
+  [disabled]="playerName.invalid || !selectedGuild"
   (click)="createCharacter()"
-  routerLink="/game/{{ charName.value }}/map">
+  routerLink="/game/{{ playerName.value }}/map">
   🚀 Begin Adventure!
 </button>

@@ -1,21 +1,27 @@
 <nav>
-  <h1 routerLink="">⚔️Tails of Angular</h1>
+  <h1 class="headingLv2" routerLink="">⚔️Tails of Angular</h1>
   <ul>
-    <li routerLinkActive="active" routerLink="/game/{{ player().nickname }}/map">🗺️Carte</li>
-    <li routerLinkActive="active" routerLink="/game/{{ player().nickname }}/city">🏢Ville</li>
-    <li routerLinkActive="active" routerLink="/game/{{ player().nickname }}/inventory">
-      🎒Inventaire
+    <li>
+      <button class="btnLink" routerLinkActive="active" routerLink="/game/map">🗺️Map</button>
+    </li>
+    <li>
+      <button class="btnLink" routerLinkActive="active" routerLink="/game/city">🏢City</button>
+    </li>
+    <li>
+      <button class="btnLink" routerLinkActive="active" routerLink="/game/inventory">
+        🎒Inventory
+      </button>
     </li>
   </ul>
 </nav>
 <div>
   <div>
-    <span>💰{{ player().money }}</span>
-    <span>Niv.{{ player().lvl }}</span>
+    <span class="moneyCounter">💰{{ player().money }}</span>
+    <span>Lv. {{ player().lvl }}</span>
     <span>{{ player().nickname }}</span>
   </div>
   <div>
-    <button>Sauvegarder</button>
-    <button>Quitter</button>
+    <button class="btnUtility btnThin">Save</button>
+    <button class="btnUtility btnThin">Quit</button>
   </div>
 </div>

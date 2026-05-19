@@ -1,14 +1,22 @@
 @keyframes floating {
   0% {
-    transform: translateY(0);
+    transform: translateY(0) scale(1) rotate(0deg);
     filter: drop-shadow(0 4px 2px rgb(0 0 0 / 0.5));
   }
+  25% {
+    transform: translateY(-10px) scale(1.05) rotate(3deg);
+    filter: drop-shadow(0 24px 12px rgb(0 0 0 / 0.18));
+  }
   50% {
-    transform: translateY(-20px);
+    transform: translateY(0) scale(1) rotate(0deg);
+    filter: drop-shadow(0 4px 2px rgb(0 0 0 / 0.5));
+  }
+  75% {
+    transform: translateY(-10px) scale(1.05) rotate(-3deg);
     filter: drop-shadow(0 24px 12px rgb(0 0 0 / 0.18));
   }
   100% {
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
     filter: drop-shadow(0 4px 2px rgb(0 0 0 / 0.5));
   }
 }

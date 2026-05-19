@@ -3,12 +3,12 @@
     <h1>{{ iconByClass[player().type] }}</h1>
     <div>
       <h3>{{ player().nickname }}</h3>
-      <span>{{ player().type | titlecase }} - Niveau {{ player().lvl }}</span>
+      <span>{{ player().type | titlecase }} - Level {{ player().lvl }}</span>
     </div>
   </div>
-  <span>💰{{ player().money }}</span>
+  <span class="moneyCounter">💰{{ player().money }}</span>
 </hgroup>
-<div>
+<div class="stats">
   <label for="hp-stats">
     <span>HP</span>
     <span>{{ player().currentHp }}/{{ player().characteristics.hp }}</span>

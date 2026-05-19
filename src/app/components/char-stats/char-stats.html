@@ -1,27 +1,23 @@
-<div>
-  <div>
-    <h3>Initial Stats</h3>
-    <div>
-      <p>
-        <span>⚔️Attack</span>
-        <span>{{ guild().characteristics.atk }}</span>
-      </p>
-      <p>
-        <span>🛡️Defense</span>
-        <span>{{ guild().characteristics.def }}</span>
-      </p>
-      <p>
-        <span>💨Speed</span>
-        <span>{{ guild().characteristics.speed }}</span>
-      </p>
-      <p>
-        <span>❤️Max HP</span>
-        <span>{{ guild().characteristics.hp }}</span>
-      </p>
-      <p>
-        <span>🩵Max MP</span>
-        <span>{{ guild().characteristics.mana }}</span>
-      </p>
-    </div>
-  </div>
+<legend>Initial Stats</legend>
+<div class="statsContainer">
+  <p class="statRow">
+    <span class="statLabel">⚔️Attack</span>
+    <span class="statValue">{{ guild()?.characteristics?.atk || 0 }}</span>
+  </p>
+  <p class="statRow">
+    <span class="statLabel">🛡️Defense</span>
+    <span class="statValue">{{ guild()?.characteristics?.def || 0 }}</span>
+  </p>
+  <p class="statRow">
+    <span class="statLabel">💨Speed</span>
+    <span class="statValue">{{ guild()?.characteristics?.speed || 0 }}</span>
+  </p>
+  <p class="statRow">
+    <span class="statLabel">❤️Max HP</span>
+    <span class="statValue">{{ guild()?.characteristics?.hp || 0 }}</span>
+  </p>
+  <p class="statRow">
+    <span class="statLabel">🩵Max MP</span>
+    <span class="statValue">{{ guild()?.characteristics?.mana || 0 }}</span>
+  </p>
 </div>

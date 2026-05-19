@@ -35,7 +35,7 @@ section {
           background-color: hsl(0 0% 50% / 0.2);
 
           &#selected {
-            background-color: v.$InteractionSecondary;
+            // background-color: v.$InteractionSecondary;
           }
         }
 
@@ -56,7 +56,7 @@ section {
               & + button {
                 border-radius: v.$radiusMd;
                 padding: 0.33rem 0.5rem;
-                background-color: v.$InteractionSecondary;
+                // background-color: v.$InteractionSecondary;
               }
 
               & > span {
@@ -76,7 +76,7 @@ section {
 
                   p {
                     margin-top: 0.66rem;
-                    color: v.$HeadingPrimary;
+                    color: v.$headingPrimary;
 
                     span {
                       padding: 0.125rem 0.33rem;
@@ -94,7 +94,7 @@ section {
             content: '';
             position: absolute;
             width: 4px;
-            background-color: v.$InteractionPrimary;
+            // background-color: v.$InteractionPrimary;
             height: 100%;
             top: 0;
             left: 0;
@@ -127,7 +127,7 @@ section {
         }
 
         & + span {
-          background-color: color-mix(in srgb, v.$HeadingPrimary 50%, transparent);
+          background-color: color-mix(in srgb, v.$headingPrimary 50%, transparent);
           padding-block: 1.5rem;
           border-radius: v.$radiusMd;
         }

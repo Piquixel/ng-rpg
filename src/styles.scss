@@ -12,153 +12,193 @@ body {
   position: relative;
   @include m.flex($justify: center);
   background-color: v.$backgroundPrimary;
-  padding: 2rem;
   font: v.$fontBody;
 
   .titleContainer {
     @include m.flex;
     text-shadow: 0 2px 8px rgb(0 0 0 / 0.4);
 
-    &__title {
-      color: v.$HeadingPrimary;
-    }
-
     &__branding {
       aspect-ratio: 1;
-      width: 256px;
+      width: 320px;
       height: auto;
-
-      &--floating {
-        animation: floating 5s ease-in-out 0s infinite;
-      }
+      mix-blend-mode: overlay;
+      // transform-origin: bottom center;
+      animation: floating 10s linear 0s infinite;
     }
 
     &__subtitle {
-      color: color-mix(in srgb, #fff 50%, v.$HeadingPrimary);
-      font:
-        bold 1.15rem/0.33 'Overlock SC',
-        sans-serif;
+      color: v.$headingSecondary;
+      font: bold 1.25rem/0.33 v.$fontSubtitle;
       letter-spacing: 0.075rem;
     }
   }
 }
 
-.title-1 {
-  font:
-    700 3.33rem/0.5 'Skranji',
-    system-ui;
-  letter-spacing: 0.05rem;
-  word-spacing: -0.33rem;
-
-  &--inline {
-    font-size: 2.25rem;
-    line-height: 1.5;
-  }
+.headingLv1 {
+  @include m.title;
+  font: 700 3rem/0.5 v.$fontTitle;
 }
 
-.title-2 {
-  font:
-    700 2.25rem/1.5 'Skranji',
-    system-ui;
+.headingLv2 {
+  @include m.title;
+  font: 600 2.25rem/1 v.$fontTitle;
+  text-align: center;
 }
 
-.title-3 {
-  font-weight: 600;
-  letter-spacing: 0.025rem;
-  padding: 0.25rem 0.5rem;
-  border-radius: v.$radiusXS;
+// .title-1 {
 
-  &--label {
-    font-size: 1.25rem;
-    background-color: v.$InteractionSecondary;
-    width: fit-content;
-    font-family: 'Overlock SC', sans-serif;
-    letter-spacing: 0.05rem;
-  }
-}
+//   &--inline {
+//     font-size: 2.25rem;
+//     line-height: 1.5;
+//   }
+// }
+
+// .title-3 {
+//   font-weight: 600;
+//   letter-spacing: 0.025rem;
+//   padding: 0.25rem 0.5rem;
+//   border-radius: v.$radiusXS;
+
+//   &--label {
+//     font-size: 1.25rem;
+//     // background-color: v.$InteractionSecondary;
+//     width: fit-content;
+//     font-family: 'Overlock SC', sans-serif;
+//     letter-spacing: 0.05rem;
+//   }
+// }
 
 button:disabled {
   cursor: not-allowed;
-  opacity: 0.66;
 }
 
-.interactBtn {
-  position: relative;
-  padding-block: 1.33rem;
-  font: v.$fontDefault;
-  letter-spacing: 0.033rem;
-  border-radius: v.$radiusSm;
-  border: v.$interactBorder;
+.btnPrimary {
+  @include m.btn;
+  padding-block: 1rem;
   width: 100%;
-  box-shadow: 0 2px 4px rgb(0 0 0 / 0.4);
-  overflow: hidden;
-  transition: 250ms ease 0s;
-  transition-property: background, transform, box-shadow, filter, letter-spacing;
+}
 
-  &:disabled {
-    background: unset;
-    color: #fff;
-    box-shadow: none;
-    backdrop-filter: brightness(0.66);
-    letter-spacing: 0.1rem;
-    filter: blur(4px);
-  }
+.btnUtility {
+  @include m.btn;
+  filter: saturate(0.5) grayscale(1);
+}
 
-  &:not(:disabled)::before {
-    content: '';
-    position: absolute;
-    transform: translateY(-50%) rotate(-45deg);
-    top: 50%;
-    left: 100%;
-    height: calc(100% + 2rem);
-    width: 196px;
-    background-color: rgb(255 255 255 / 0.5);
-    mix-blend-mode: soft-light;
-    z-index: -1;
-  }
+.btnLink {
+  background: unset;
 
-  &:not(:disabled):hover {
-    transform: translateY(-4px);
-    box-shadow: 0 6px 8px 0 rgb(0 0 0 / 0.25);
-    transition-delay: 120ms;
-
-    &::before {
-      left: -12rem;
-      transition: left 350ms ease-in;
-    }
-  }
-
-  &--primary:not(:disabled) {
-    background-color: v.$InteractionPrimary;
-
-    &:hover {
-      background-color: v.$InteractionSecondary;
-    }
+  &:hover {
+    text-decoration: underline;
   }
 }
 
-.fieldContainer {
+.btnThin {
+  padding-block: 0.25rem;
+}
+
+.divider {
+  color: #fff5;
+  width: 66%;
+}
+
+// .interactBtn {
+//   position: relative;
+//   padding-block: 1.33rem;
+//   font: v.$fontDefault;
+//   letter-spacing: 0.033rem;
+//   border-radius: v.$radiusSm;
+//   // border: v.$interactBorder;
+//   width: 100%;
+//   box-shadow: 0 2px 4px rgb(0 0 0 / 0.4);
+//   overflow: hidden;
+//   transition: 250ms ease 0s;
+//   transition-property: background, transform, box-shadow, filter, letter-spacing;
+
+//   &:disabled {
+//     background: unset;
+//     color: #fff;
+//     box-shadow: none;
+//     backdrop-filter: brightness(0.66);
+//     letter-spacing: 0.1rem;
+//     filter: blur(4px);
+//   }
+
+//   &:not(:disabled)::before {
+//     content: '';
+//     position: absolute;
+//     transform: translateY(-50%) rotate(-45deg);
+//     top: 50%;
+//     left: 100%;
+//     height: calc(100% + 2rem);
+//     width: 196px;
+//     background-color: rgb(255 255 255 / 0.5);
+//     mix-blend-mode: soft-light;
+//     z-index: -1;
+//   }
+
+//   &:not(:disabled):hover {
+//     transform: translateY(-4px);
+//     box-shadow: 0 6px 8px 0 rgb(0 0 0 / 0.25);
+//     transition-delay: 120ms;
+
+//     &::before {
+//       left: -12rem;
+//       transition: left 350ms ease-in;
+//     }
+//   }
+
+//   &--primary:not(:disabled) {
+//     // background-color: v.$InteractionPrimary;
+
+//     &:hover {
+//       // background-color: v.$InteractionSecondary;
+//     }
+//   }
+// }
+
+.interactContainer {
+  position: relative;
+  background: unset;
+  height: 100%;
+}
+
+button hr {
+  margin-block: 0.33rem;
+
+  & + span {
+    font-size: 0.75rem;
+  }
+}
+
+fieldset {
+  position: relative;
   @include m.flex($align: stretch);
 
-  &__label {
+  legend {
     position: relative;
-    background-color: v.$InteractionSecondary;
-    padding: 0.25rem 0.5rem;
-    font-size: 0.85rem;
-    margin-bottom: -0.5rem;
+    background-color: v.$accentColor;
+    padding: 0.33rem 0.66rem;
+    border-radius: v.$radiusSm;
+    font: v.$fontDefault;
+    letter-spacing: 0.05rem;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 0.25);
+    margin-bottom: -0.75rem;
     z-index: 1;
-    border-radius: v.$radiusXS;
-    width: fit-content;
   }
 
-  &__field {
+  & > *:is(input, div) {
+    margin-left: 0.5rem;
+  }
+
+  input {
     padding: 0.85rem;
-    margin-inline: 0.5rem;
-    box-shadow: inset 0 0 6px hsl(0 0% 0% / 0.2);
+    box-shadow:
+      inset 0 0 6px hsl(0 0% 0% / 0.2),
+      0 2px 4px rgb(0 0 0 / 0.2);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    border-radius: v.$radiusMd;
+    border-radius: 0 v.$radiusSm v.$radiusSm;
     background: unset;
     backdrop-filter: brightness(0.8) blur(44px);
     border: 2px solid rgb(255 255 255 / 0.08);
@@ -167,13 +207,17 @@ button:disabled {
 
     &:focus,
     &:focus-within {
-      border-color: v.$InteractionPrimary;
+      border-color: v.$accentColor;
     }
   }
 }
 
-.interactContainer {
-  position: relative;
-  background: unset;
-  height: 100%;
+.moneyCounter {
+  color: v.$moneyColor;
+  font-weight: bold;
+  letter-spacing: 0.025rem;
+}
+
+.w-full {
+  width: 100%;
 }
