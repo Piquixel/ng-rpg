@@ -1,10 +1,11 @@
 import { EnemyRaceType } from 'enums/enemy-race-type.enum';
+import { enemyKind } from 'enums/kind.enum';
 import { BaseEntity, BaseInstance } from './base-entity.interface';
 
-interface EnemyInstance extends BaseEntity {
+export interface EnemyInstance extends BaseEntity {
   race: EnemyRaceType;
 }
 
 export interface Enemy extends EnemyInstance, BaseInstance {
-  kind: 'normal' | 'elite' | 'boss';
+  kind: enemyKind;
 }

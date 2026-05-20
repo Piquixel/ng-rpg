@@ -1,4 +1,5 @@
 import { EnemyRaceType } from 'enums/enemy-race-type.enum';
+import { enemyKind } from 'enums/kind.enum';
 import { Enemy } from 'interfaces/enemy.interface';
 
 export const ENEMY_DATA: Enemy[] = [
@@ -16,7 +17,7 @@ export const ENEMY_DATA: Enemy[] = [
     lvl: 1,
     currentHp: 30,
     currentMp: 0,
-    kind: 'normal',
+    kind: enemyKind.NORMAL,
   },
   {
     name: 'Troll',
@@ -32,7 +33,7 @@ export const ENEMY_DATA: Enemy[] = [
     lvl: 1,
     currentHp: 80,
     currentMp: 0,
-    kind: 'normal',
+    kind: enemyKind.NORMAL,
   },
   {
     name: 'Troll',
@@ -48,7 +49,7 @@ export const ENEMY_DATA: Enemy[] = [
     lvl: 1,
     currentHp: 80,
     currentMp: 0,
-    kind: 'normal',
+    kind: enemyKind.NORMAL,
   },
   {
     name: 'Loup',
@@ -64,6 +65,6 @@ export const ENEMY_DATA: Enemy[] = [
     lvl: 1,
     currentHp: 50,
     currentMp: 0,
-    kind: 'normal',
+    kind: enemyKind.NORMAL,
   },
 ];

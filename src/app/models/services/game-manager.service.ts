@@ -1,8 +1,12 @@
 import { inject, Injectable } from '@angular/core';
 import { ENEMY_DATA } from 'data/enemy.data';
+import { EnemyRaceType } from 'enums/enemy-race-type.enum';
 import { GameState } from 'enums/gameState.enum';
+import { enemyKind } from 'enums/kind.enum';
 import { Enemy } from 'interfaces/enemy.interface';
 import { Player } from 'interfaces/player.interface';
+import { EntityHelper } from 'models/helpers/entity.helper';
+import { map, Observable } from 'rxjs';
 import { RandomService } from './random.service';
 
 @Injectable({
@@ -19,9 +23,21 @@ export class GameManagerService {
 
   public initGame(player: Player): void {
     this._currentPlayer = player;
-    this._random.randomInteger.subscribe(res => {
+    this._random.getRandomInteger().subscribe(res => {
       this._randomArray = res.result.random.data;
     });
+  }
+
+  public getRandomEnemiesType(): Observable<EnemyRaceType[]> {
+    return this._random
+      .generateIntegerAndGetData(5, 0, 2)
+      .pipe(map(values => EntityHelper.getRaceByNumbers(values)));
+  }
+
+  public getRandomEnemiesKind(): Observable<enemyKind[]> {
+    return this._random
+      .generateIntegerAndGetData(5, 0, 2)
+      .pipe(map(values => EntityHelper.getKindByNumbers(values)));
   }
 
   public resetGame(): void {
@@ -41,6 +57,7 @@ export class GameManagerService {
   }
 
   public startFight(): void {
+    this.getRandomEnemiesKind().subscribe(values => console.log(values));
     this._gameState = GameState.FIGHT_INIT;
     while (this._gameState !== GameState.FIGHT_END) {
       console.log('Fight state => ', this._gameState);
