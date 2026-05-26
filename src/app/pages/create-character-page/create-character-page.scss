@@ -2,7 +2,9 @@
 @use '../../../mixins' as m;
 
 :host {
-  @include m.flex($gap: 1rem 0);
+  margin-inline: auto;
+  height: 100vh;
+  @include m.flex($justify: center, $gap: 1rem 0);
 }
 
 .cardsContainer {

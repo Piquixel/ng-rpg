@@ -1,7 +1,16 @@
+@use '../../../mixins' as m;
+
+:host {
+  @include m.flex;
+  height: 100vh;
+}
+
 header {
-  position: fixed;
-  width: 100vw;
-  padding: 0.5rem 0.5rem 0;
-  top: 0;
-  left: 0;
+  flex-shrink: 1;
+}
+
+main {
+  @include m.flex($justify: center);
+  // height: 100vh;
+  flex-grow: 1;
 }

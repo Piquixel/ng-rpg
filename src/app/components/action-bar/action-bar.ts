@@ -19,28 +19,12 @@ interface InventoryActions {
   styleUrl: './action-bar.scss',
 })
 export class ActionBar {
-  public readonly typeAction: TypeActions[] = [
-    {
-      cost: 10,
-      icon: '⚔️',
-      name: 'Taillade',
-    },
-    {
-      cost: 15,
-      icon: '🛡️',
-      name: 'Coup de bouclier',
-    },
-    {
-      cost: 20,
-      icon: '📯',
-      name: 'Cri de Guerre',
-    },
+  public readonly typeActions: TypeActions[] = [
+    { cost: 10, icon: '⚔️', name: 'Taillade' },
+    { cost: 15, icon: '🛡️', name: 'Coup de bouclier' },
+    { cost: 20, icon: '📯', name: 'Cri de Guerre' },
   ];
-  public readonly InventoryAction: InventoryActions[] = [
-    {
-      icon: '',
-      quantity: 3,
-      name: 'Taillade',
-    },
+  public readonly inventoryActions: InventoryActions[] = [
+    { icon: '', quantity: 3, name: 'Taillade' },
   ];
 }

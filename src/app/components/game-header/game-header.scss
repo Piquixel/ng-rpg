@@ -3,13 +3,13 @@
 
 :host {
   @include m.flex(row, $justify: space-between);
-  width: 100%;
-  background-color: hsl(0 0% 0% / 0.2);
-  border: 1px solid hsl(0 0% 100% / 0.08);
-  border-radius: v.$radiusMd;
-  box-shadow: 0 4px 12px rgb(0 0 0 / 0.2);
-  backdrop-filter: contrast(1.15) brightness(1.1) blur(44px);
-  padding-inline: 1.5rem;
+  width: 100vw;
+  // background-color: hsl(0 0% 0% / 0.2);
+  // border: 1px solid hsl(0 0% 100% / 0.08);
+  // border-radius: v.$radiusMd;
+  // box-shadow: 0 4px 12px rgb(0 0 0 / 0.2);
+  // backdrop-filter: contrast(1.15) brightness(1.1) blur(44px);
+  padding: 0.5rem 1rem;
 
   & > * {
     @include m.flex(row, $gap: 0 1rem);
@@ -33,27 +33,6 @@
       li {
         position: relative;
         @include m.flex(row, $justify: center);
-
-        &::before {
-          content: '';
-          pointer-events: none;
-          position: absolute;
-          bottom: 0;
-          opacity: 0;
-          border-radius: v.$radiusRound;
-          width: 24px;
-          height: 2px;
-          background-color: v.$accentColor;
-          z-index: -1;
-          border: 1px solid hsl(0 0% 100% / 0.16);
-          transition: 250ms ease-out;
-          transition-property: bottom, opacity;
-        }
-
-        &:has(> .active)::before {
-          opacity: 1;
-          bottom: -0.5rem;
-        }
       }
     }
   }
@@ -82,6 +61,69 @@
 
       &:last-child {
         background-color: #dd2727;
+      }
+    }
+  }
+}
+
+.quickStats {
+  @include m.flex(row, wrap, $gap: 0 0.5rem);
+  backdrop-filter: contrast(1.15) brightness(1.1) blur(44px);
+  padding: 0.25rem 0.5rem;
+  background-color: hsl(0 0% 0% / 0.2);
+  border: 1px solid hsl(0 0% 100% / 0.08);
+  border-radius: v.$radiusRound;
+  box-shadow: 0 4px 12px 0 rgb(0 0 0 / 0.2);
+
+  & > div {
+    position: relative;
+    // background-color: v.$moneyColor;
+    // border-radius: v.$radiusRound;
+    // padding: 0.5rem 0.66rem;
+
+    & > span:first-child {
+      @include m.flex($justify: center);
+      border-radius: v.$radiusRound;
+      position: relative;
+      aspect-ratio: 1;
+      width: 32px;
+      height: auto;
+      background-color: v.$accentColor;
+      box-shadow: 0 0 4px 0 rgb(0 0 0/0.5);
+    }
+
+    & > span:last-child {
+      @include m.flex($justify: center);
+      padding-inline: 0.66rem;
+      background-color: v.$moneyColor;
+      height: 28px;
+      margin-left: -1rem;
+      border-radius: 0 v.$radiusRound v.$radiusRound 0;
+    }
+  }
+}
+
+.gameMenu {
+  backdrop-filter: contrast(1.15) brightness(1.1) blur(44px);
+  padding: 0.25rem;
+  background-color: hsl(0 0% 0% / 0.2);
+  border: 1px solid hsl(0 0% 100% / 0.08);
+  border-radius: v.$radiusRound;
+  box-shadow: 0 4px 12px 0 rgb(0 0 0 / 0.2);
+
+  .menuComponents {
+    @include m.flex(row, wrap, $gap: 0 0.5rem);
+
+    &__item {
+      border-radius: v.$radiusRound;
+
+      &:has(> .active) {
+        background-color: v.$accentColor;
+      }
+
+      button {
+        height: 32px;
+        padding-inline: 0.5rem;
       }
     }
   }

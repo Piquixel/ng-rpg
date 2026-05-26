@@ -7,8 +7,8 @@ import { GameManagerService } from 'models/services/game-manager.service';
 const IconByRace: Record<EnemyRaceType, string> = {
   [EnemyRaceType.Goblin]: '👺',
   [EnemyRaceType.Orc]: '👹',
-  [EnemyRaceType.Wolf]: '🧌',
-  [EnemyRaceType.Troll]: '🐺',
+  [EnemyRaceType.Troll]: '🧌',
+  [EnemyRaceType.Wolf]: '🐺',
   [EnemyRaceType.Dragon]: '🐲',
 };
 

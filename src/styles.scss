@@ -10,21 +10,23 @@ html {
 
 body {
   position: relative;
-  @include m.flex($justify: center);
+  // @include m.flex($justify: center);
   background-color: v.$backgroundPrimary;
   font: v.$fontBody;
 
   .titleContainer {
     @include m.flex;
     text-shadow: 0 2px 8px rgb(0 0 0 / 0.4);
+    margin-bottom: 1.5rem;
 
     &__branding {
       aspect-ratio: 1;
-      width: 320px;
+      flex-basis: auto;
+      width: 360px;
       height: auto;
-      mix-blend-mode: overlay;
-      // transform-origin: bottom center;
-      animation: floating 10s linear 0s infinite;
+      opacity: 0.8;
+      // mix-blend-mode: overlay;
+      animation: floating 5s ease-in-out 0s infinite;
     }
 
     &__subtitle {
@@ -81,7 +83,8 @@ button:disabled {
 
 .btnUtility {
   @include m.btn;
-  filter: saturate(0.5) grayscale(1);
+  filter: saturate(1.2) grayscale(0.66);
+  width: 100%;
 }
 
 .btnLink {
@@ -97,8 +100,12 @@ button:disabled {
 }
 
 .divider {
-  color: #fff5;
-  width: 66%;
+  color: hsl(0 0% 100% / 0.08);
+  width: 100%;
+}
+
+button.spaced {
+  @include m.flex(row, $justify: space-between);
 }
 
 // .interactBtn {
@@ -216,8 +223,4 @@ fieldset {
   color: v.$moneyColor;
   font-weight: bold;
   letter-spacing: 0.025rem;
-}
-
-.w-full {
-  width: 100%;
 }

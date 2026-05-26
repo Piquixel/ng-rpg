@@ -1,29 +1,33 @@
-<div class="{{ isPlayer() ? 'player' : 'enemy' }} ">
+<div class="card {{ isPlayer() ? 'player' : 'enemy' }} ">
   <h4>
     {{ isPlayer() ? player().nickname : enemy().name }}
     @if (!isPlayer()) {
-      <span>{{ enemy().kind | titlecase }}</span>
+      <span class="enemyTag">{{ enemy().kind | titlecase }}</span>
     }
   </h4>
   <span>{{ isPlayer() ? player().icon : IconByRace[enemy().race] }}</span>
   <label for="health">
     <span>PV</span>
     <span>{{
-      isPlayer() ? player().currentHp + '/' + player().characteristics.hp : '100/100'
+      isPlayer()
+        ? player().currentHp + '/' + player().characteristics.hp
+        : enemy().currentHp + '/' + enemy().characteristics.hp
     }}</span>
   </label>
   <progress
     id="health"
-    [max]="isPlayer() ? player().characteristics.hp : '100'"
-    [value]="isPlayer() ? player().currentHp : '100'"></progress>
-  @if (isPlayer()) {
-    <label for="magic">
-      <span>PM</span>
-      <span>{{ player().currentMp + '/' + player().characteristics.mana }}</span>
-    </label>
-    <progress
-      id="magic"
-      [max]="player().characteristics.mana"
-      [value]="player().currentMp"></progress>
-  }
+    [max]="isPlayer() ? player().characteristics.hp : enemy().characteristics.hp"
+    [value]="isPlayer() ? player().currentHp : enemy().currentHp"></progress>
+  <label for="magic">
+    <span>PM</span>
+    <span>{{
+      isPlayer()
+        ? player().currentMp + '/' + player().characteristics.mana
+        : enemy().currentMp + '/' + enemy().characteristics.mana
+    }}</span>
+  </label>
+  <progress
+    id="magic"
+    [max]="isPlayer() ? player().characteristics.mana : enemy().characteristics.mana"
+    [value]="isPlayer() ? player().currentMp : enemy().currentMp"></progress>
 </div>
