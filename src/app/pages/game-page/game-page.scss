@@ -7,10 +7,13 @@
 
 header {
   flex-shrink: 1;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 
 main {
   @include m.flex($justify: center);
-  // height: 100vh;
+  padding-bottom: 1rem;
   flex-grow: 1;
 }

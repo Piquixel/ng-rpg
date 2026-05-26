@@ -1,12 +1,11 @@
-import { inject, Injectable } from '@angular/core';
-import { ENEMY_DATA } from 'data/enemy.data';
+import { inject, Injectable, signal, WritableSignal } from '@angular/core';
 import { EnemyRaceType } from 'enums/enemy-race-type.enum';
 import { GameState } from 'enums/gameState.enum';
 import { enemyKind } from 'enums/kind.enum';
 import { Enemy } from 'interfaces/enemy.interface';
 import { Player } from 'interfaces/player.interface';
 import { EntityHelper } from 'models/helpers/entity.helper';
-import { map, Observable } from 'rxjs';
+import { map, Observable, zip } from 'rxjs';
 import { RandomService } from './random.service';
 
 @Injectable({
@@ -14,18 +13,14 @@ import { RandomService } from './random.service';
 })
 export class GameManagerService {
   private _currentPlayer?: Player;
-  private _gameState: GameState = GameState.NONE;
-  private _enemies: Enemy[] = ENEMY_DATA;
+  private _gameState: WritableSignal<GameState> = signal(GameState.NONE);
+  private _enemies: Enemy[] = [];
   private _CurrentEnemy?: Enemy;
-  private _randomArray: number[] = [];
 
   private readonly _random: RandomService = inject(RandomService);
 
   public initGame(player: Player): void {
     this._currentPlayer = player;
-    this._random.getRandomInteger().subscribe(res => {
-      this._randomArray = res.result.random.data;
-    });
   }
 
   public getRandomEnemiesType(): Observable<EnemyRaceType[]> {
@@ -48,6 +43,10 @@ export class GameManagerService {
     return !!this._currentPlayer;
   }
 
+  public get state(): WritableSignal<GameState> {
+    return this._gameState;
+  }
+
   public get currentPlayer(): Player {
     return this._currentPlayer!;
   }
@@ -57,34 +56,49 @@ export class GameManagerService {
   }
 
   public startFight(): void {
-    this.getRandomEnemiesKind().subscribe(values => console.log(values));
-    this._gameState = GameState.FIGHT_INIT;
-    while (this._gameState !== GameState.FIGHT_END) {
-      console.log('Fight state => ', this._gameState);
-      switch (this._gameState) {
-        case GameState.FIGHT_INIT:
-          this._CurrentEnemy = this._enemies.shift();
-          this._gameState = GameState.TURN_DECIDE;
-          break;
-        case GameState.TURN_DECIDE:
-          this._gameState = this.handleTurnDecide();
-          break;
-        case GameState.PLAYER_TURN:
-          this._gameState = this.handlePlayerTurn();
-          break;
-        case GameState.ENEMY_TURN:
-          this._gameState = this.handleEnemyTurn();
-          break;
-        case GameState.APPLY_EFFECT:
-          this._gameState = this.handleApplyEffect();
-          break;
-        case GameState.CHECK_END:
-          this._gameState = this.handleCheckEnd();
-          break;
-        default:
-          this._gameState = GameState.FIGHT_END;
-      }
-    }
+    const type$ = this.getRandomEnemiesType();
+    const kind$ = this.getRandomEnemiesKind();
+
+    zip(type$, kind$)
+      .pipe(
+        map(([type, kind]) => ({
+          type,
+          kind,
+        })),
+      )
+      .subscribe(values => {
+        this._enemies = values.type.map((type, i) =>
+          EntityHelper.enemyRaceToInstance(type, values.kind[i]),
+        );
+
+        this._gameState.set(GameState.FIGHT_INIT);
+        while (this._gameState() !== GameState.FIGHT_END) {
+          // console.log('Fight state => ', this._gameState);
+          switch (this._gameState()) {
+            case GameState.FIGHT_INIT:
+              this._CurrentEnemy = this._enemies.shift();
+              this._gameState.set(GameState.TURN_DECIDE);
+              break;
+            case GameState.TURN_DECIDE:
+              this._gameState.set(this.handleTurnDecide());
+              break;
+            case GameState.PLAYER_TURN:
+              this._gameState.set(this.handlePlayerTurn());
+              break;
+            case GameState.ENEMY_TURN:
+              this._gameState.set(this.handleEnemyTurn());
+              break;
+            case GameState.APPLY_EFFECT:
+              this._gameState.set(this.handleApplyEffect());
+              break;
+            case GameState.CHECK_END:
+              this._gameState.set(this.handleCheckEnd());
+              break;
+            default:
+              this._gameState.set(GameState.FIGHT_END);
+          }
+        }
+      });
   }
 
   public handleTurnDecide(): GameState {

@@ -14,9 +14,6 @@ $interactBorder: 2px solid hsl(0 0% 0% / 0.2);
 
 $moneyColor: #cba135;
 
-// $InteractionHover: color.change($InteractionSecondary, $alpha: 0.05);
-// $InteractionSelected: color.change($InteractionPrimary, $alpha: 0.1);
-
 $radiusXS: 0.125rem;
 $radiusSm: 0.25rem;
 $radiusMd: 0.5rem;
@@ -31,5 +28,5 @@ $fontBody:
   normal 0.9rem/1 'Poppins',
   sans-serif;
 
-$fontTitle: 'Skranji', system-ui;
-$fontSubtitle: 'Overlock SC', sans-serif;
+$titleFontFamily: 'Skranji', system-ui;
+$subtitleFontFamily: 'Overlock SC', sans-serif;

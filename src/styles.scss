@@ -10,66 +10,20 @@ html {
 
 body {
   position: relative;
-  // @include m.flex($justify: center);
   background-color: v.$backgroundPrimary;
   font: v.$fontBody;
-
-  .titleContainer {
-    @include m.flex;
-    text-shadow: 0 2px 8px rgb(0 0 0 / 0.4);
-    margin-bottom: 1.5rem;
-
-    &__branding {
-      aspect-ratio: 1;
-      flex-basis: auto;
-      width: 360px;
-      height: auto;
-      opacity: 0.8;
-      // mix-blend-mode: overlay;
-      animation: floating 5s ease-in-out 0s infinite;
-    }
-
-    &__subtitle {
-      color: v.$headingSecondary;
-      font: bold 1.25rem/0.33 v.$fontSubtitle;
-      letter-spacing: 0.075rem;
-    }
-  }
 }
 
 .headingLv1 {
   @include m.title;
-  font: 700 3rem/0.5 v.$fontTitle;
+  font: 700 3rem/0.5 v.$titleFontFamily;
 }
 
 .headingLv2 {
   @include m.title;
-  font: 600 2.25rem/1 v.$fontTitle;
+  font: 600 2.25rem/1 v.$titleFontFamily;
   text-align: center;
 }
-
-// .title-1 {
-
-//   &--inline {
-//     font-size: 2.25rem;
-//     line-height: 1.5;
-//   }
-// }
-
-// .title-3 {
-//   font-weight: 600;
-//   letter-spacing: 0.025rem;
-//   padding: 0.25rem 0.5rem;
-//   border-radius: v.$radiusXS;
-
-//   &--label {
-//     font-size: 1.25rem;
-//     // background-color: v.$InteractionSecondary;
-//     width: fit-content;
-//     font-family: 'Overlock SC', sans-serif;
-//     letter-spacing: 0.05rem;
-//   }
-// }
 
 button:disabled {
   cursor: not-allowed;
@@ -90,7 +44,16 @@ button:disabled {
 .btnLink {
   background: unset;
 
-  &:hover {
+  &--pill {
+    overflow: hidden;
+    border-radius: v.$radiusRound;
+
+    &:hover {
+      background-color: hsl(0 0% 100% / 0.1);
+    }
+  }
+
+  &:not(&--pill):hover {
     text-decoration: underline;
   }
 }
@@ -107,61 +70,6 @@ button:disabled {
 button.spaced {
   @include m.flex(row, $justify: space-between);
 }
-
-// .interactBtn {
-//   position: relative;
-//   padding-block: 1.33rem;
-//   font: v.$fontDefault;
-//   letter-spacing: 0.033rem;
-//   border-radius: v.$radiusSm;
-//   // border: v.$interactBorder;
-//   width: 100%;
-//   box-shadow: 0 2px 4px rgb(0 0 0 / 0.4);
-//   overflow: hidden;
-//   transition: 250ms ease 0s;
-//   transition-property: background, transform, box-shadow, filter, letter-spacing;
-
-//   &:disabled {
-//     background: unset;
-//     color: #fff;
-//     box-shadow: none;
-//     backdrop-filter: brightness(0.66);
-//     letter-spacing: 0.1rem;
-//     filter: blur(4px);
-//   }
-
-//   &:not(:disabled)::before {
-//     content: '';
-//     position: absolute;
-//     transform: translateY(-50%) rotate(-45deg);
-//     top: 50%;
-//     left: 100%;
-//     height: calc(100% + 2rem);
-//     width: 196px;
-//     background-color: rgb(255 255 255 / 0.5);
-//     mix-blend-mode: soft-light;
-//     z-index: -1;
-//   }
-
-//   &:not(:disabled):hover {
-//     transform: translateY(-4px);
-//     box-shadow: 0 6px 8px 0 rgb(0 0 0 / 0.25);
-//     transition-delay: 120ms;
-
-//     &::before {
-//       left: -12rem;
-//       transition: left 350ms ease-in;
-//     }
-//   }
-
-//   &--primary:not(:disabled) {
-//     // background-color: v.$InteractionPrimary;
-
-//     &:hover {
-//       // background-color: v.$InteractionSecondary;
-//     }
-//   }
-// }
 
 .interactContainer {
   position: relative;

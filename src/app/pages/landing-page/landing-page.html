@@ -1,15 +1,15 @@
-<main>
-  <img class="titleContainer__branding" src="/logo.svg" alt />
-  <div class="mainMenu">
-    <hgroup class="titleContainer">
-      <h1 class="titleContainer__title headingLv1">Tails of Angular</h1>
-      <p class="titleContainer__subtitle">Play smart, win big</p>
+<main class="homeScreen">
+  <img class="homeScreen__branding" src="/logo.svg" alt="" />
+  <div class="homeScreen__menu">
+    <hgroup class="homeScreen__menu__header">
+      <h1 class="homeScreen__menu__header__title headingLv1">Tails of Angular</h1>
+      <p class="homeScreen__menu__header__subtitle">Play smart, win big</p>
     </hgroup>
     <button class="btnPrimary" routerLink="/create-character">New Adventure</button>
     @if (playerService.hasSavedPlayers) {
       <hr class="divider" />
-      <span class="mainMenu__title">Load an Adventure</span>
-      <div class="mainMenu__subContainer">
+      <span class="homeScreen__menu__title">Load an Adventure</span>
+      <div class="homeScreen__menu__subContainer">
         @for (player of playerService.savedPlayers; track player.nickname) {
           <button class="btnUtility spaced" (click)="initGameWithSavedPlayer(player)">
             {{ player.icon }}{{ player.nickname }}

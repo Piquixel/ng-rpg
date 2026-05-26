@@ -1,30 +1,44 @@
 @use '../../../mixins' as m;
 @use '../../../variables' as v;
 
-:host {
-  @include m.flex(column, $align: center, $gap: 2.5rem 0);
+.homeScreen {
+  @include m.flex(row, $justify: space-between);
+  width: 100vw;
+  height: 100vh;
+  max-width: 1050px;
+  margin-inline: auto;
 
-  main {
-    @include m.flex(row, $justify: space-between);
-    width: 100vw;
-    height: 100vh;
-    max-width: 1050px;
+  &__branding {
+    aspect-ratio: 1;
+    flex-basis: auto;
+    width: 360px;
+    height: auto;
+    opacity: 0.8;
+    animation: floating 5s ease-in-out 0s infinite;
   }
 
-  .titleContainer__title {
-    white-space: nowrap;
-  }
-
-  .mainMenu {
+  &__menu {
     position: relative;
     @include m.flex($gap: 0.25rem 0);
-    backdrop-filter: contrast(1.15) brightness(1.1) blur(44px) brightness(0.8);
+    @include m.darkGlass;
     width: 100%;
-    padding: 1rem;
-    border-radius: v.$radiusMd;
-    border: 1px solid hsl(0 0% 100% / 0.08);
-    box-shadow: 0 4px 12px rgb(0 0 0 / 0.2);
     flex-basis: 50%;
+
+    &__header {
+      @include m.flex;
+      text-shadow: 0 2px 8px rgb(0 0 0 / 0.4);
+      margin-bottom: 1.5rem;
+
+      &__title {
+        white-space: nowrap;
+      }
+
+      &__subtitle {
+        color: v.$headingSecondary;
+        font: bold 1.25rem/0.33 v.$subtitleFontFamily;
+        letter-spacing: 0.075rem;
+      }
+    }
 
     &__subContainer {
       @include m.flex($gap: 0.5rem);

@@ -3,7 +3,6 @@
 
 :host {
   @include m.flex($gap: 1rem 0);
-  width: 60vw;
   backdrop-filter: contrast(1.15) brightness(1.1) blur(44px);
   background-color: hsl(0 0% 0% / 0.2);
   overflow: hidden;

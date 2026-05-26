@@ -20,7 +20,7 @@
   @include m.flex(row, $justify: space-between);
 
   h3 {
-    font: 600 1.25rem v.$fontSubtitle;
+    font: 600 1.25rem v.$subtitleFontFamily;
   }
 
   & > span {
