@@ -5,8 +5,11 @@
     <app-player-card [isPlayer]="false" />
   </div>
 
-  <app-fight-history />
-  <app-action-bar />
+  <app-fight-history [entries]="log.logEntries" />
+  <app-action-bar
+    [disabled]="isActive"
+    (playerAtk)="gameManager.fightLoop()"
+    (playerQuit)="gameManager.returnToMap(false)" />
 } @else {
   <div>
     <h1>ERROR</h1>

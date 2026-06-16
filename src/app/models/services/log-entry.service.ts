@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { LogEntry, LogKind } from 'interfaces/log-entry.interface';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable({ providedIn: 'root' })
 export class LogEntryService {
   private _logEntries: LogEntry[] = [];
 

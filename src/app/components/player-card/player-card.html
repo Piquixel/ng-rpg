@@ -10,24 +10,70 @@
     <span>PV</span>
     <span>{{
       isPlayer()
-        ? player().currentHp + '/' + player().characteristics.hp
-        : enemy().currentHp + '/' + enemy().characteristics.hp
+        ? (player().currentHp | interfaceDigits) +
+          '/' +
+          (player().characteristics.hp | interfaceDigits)
+        : (enemy().currentHp | interfaceDigits) +
+          '/' +
+          (enemy().characteristics.hp | interfaceDigits)
     }}</span>
   </label>
   <progress
     id="health"
-    [max]="isPlayer() ? player().characteristics.hp : enemy().characteristics.hp"
-    [value]="isPlayer() ? player().currentHp : enemy().currentHp"></progress>
+    [max]="
+      isPlayer()
+        ? (player().characteristics.hp | interfaceDigits)
+        : (enemy().characteristics.hp | interfaceDigits)
+    "
+    [value]="
+      isPlayer() ? (player().currentHp | interfaceDigits) : (enemy().currentHp | interfaceDigits)
+    "></progress>
   <label for="magic">
     <span>PM</span>
     <span>{{
       isPlayer()
-        ? player().currentMp + '/' + player().characteristics.mana
-        : enemy().currentMp + '/' + enemy().characteristics.mana
+        ? (player().currentMp | interfaceDigits) +
+          '/' +
+          (player().characteristics.mana | interfaceDigits)
+        : (enemy().currentMp | interfaceDigits) +
+          '/' +
+          (enemy().characteristics.mana | interfaceDigits)
     }}</span>
   </label>
   <progress
     id="magic"
-    [max]="isPlayer() ? player().characteristics.mana : enemy().characteristics.mana"
-    [value]="isPlayer() ? player().currentMp : enemy().currentMp"></progress>
+    [max]="
+      isPlayer()
+        ? (player().characteristics.mana | interfaceDigits)
+        : (enemy().characteristics.mana | interfaceDigits)
+    "
+    [value]="
+      isPlayer() ? (player().currentMp | interfaceDigits) : (enemy().currentMp | interfaceDigits)
+    "></progress>
+  <div>
+    <span
+      >DEF -
+      {{
+        isPlayer()
+          ? (player().characteristics.def | interfaceDigits)
+          : (enemy().characteristics.def | interfaceDigits)
+      }}</span
+    >
+    <span
+      >ATK -
+      {{
+        isPlayer()
+          ? (player().characteristics.atk | interfaceDigits)
+          : (enemy().characteristics.atk | interfaceDigits)
+      }}</span
+    >
+    <span
+      >SPD -
+      {{
+        isPlayer()
+          ? (player().characteristics.speed | interfaceDigits)
+          : (enemy().characteristics.speed | interfaceDigits)
+      }}</span
+    >
+  </div>
 </div>

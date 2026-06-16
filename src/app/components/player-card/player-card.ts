@@ -3,6 +3,7 @@ import { Component, computed, inject, input, InputSignal } from '@angular/core';
 import { IconByClass } from 'enums/class-type.enum';
 import { EnemyRaceType } from 'enums/enemy-race-type.enum';
 import { GameManagerService } from 'models/services/game-manager.service';
+import { InterfaceDigitsPipe } from '../../pipes/interface-digits-pipe';
 
 const IconByRace: Record<EnemyRaceType, string> = {
   [EnemyRaceType.Goblin]: '👺',
@@ -14,7 +15,7 @@ const IconByRace: Record<EnemyRaceType, string> = {
 
 @Component({
   selector: 'app-player-card',
-  imports: [TitleCasePipe],
+  imports: [TitleCasePipe, InterfaceDigitsPipe],
   templateUrl: './player-card.html',
   styleUrl: './player-card.scss',
 })

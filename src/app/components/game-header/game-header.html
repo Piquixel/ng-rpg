@@ -2,7 +2,7 @@
   <span class="playerNickname">{{ player().icon }}{{ player().nickname }}</span>
   <div>
     <span class="playerLevel">{{ player().lvl }}</span>
-    <span class="playerMoney">£{{ player().money }}</span>
+    <span class="playerMoney">£{{ player().money | interfaceDigits }}</span>
   </div>
 </div>
 <nav class="gameMenu">
@@ -20,9 +20,9 @@
     }
   </ul>
 </nav>
-<!-- <div>
+<div>
   <div>
-    <button class="btnUtility btnThin">Save</button>
+    <button class="btnUtility btnThin" (click)="gameManager.onSave()">Save</button>
     <button class="btnUtility btnThin">Quit</button>
   </div>
-</div> -->
+</div>

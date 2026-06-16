@@ -6,20 +6,28 @@
       <span>{{ player().type | titlecase }} - Level {{ player().lvl }}</span>
     </div>
   </div>
-  <span class="moneyCounter">💰{{ player().money }}</span>
+  <span class="moneyCounter">💰{{ player().money | interfaceDigits }}</span>
 </hgroup>
 <div class="stats">
   <label for="hp-stats">
     <span>HP</span>
-    <span>{{ player().currentHp }}/{{ player().characteristics.hp }}</span>
+    <span
+      >{{ player().currentHp | interfaceDigits }}/{{
+        player().characteristics.hp | interfaceDigits
+      }}</span
+    >
   </label>
   <progress
     id="hp-stats"
-    [max]="player().characteristics.hp"
-    [value]="player().currentHp"></progress>
+    [max]="player().characteristics.hp | interfaceDigits"
+    [value]="player().currentHp | interfaceDigits"></progress>
   <label for="mp-stats">
     <span>MP</span>
-    <span>{{ player().currentMp }}/{{ player().characteristics.mana }}</span>
+    <span
+      >{{ player().currentMp | interfaceDigits }}/{{
+        player().characteristics.mana | interfaceDigits
+      }}</span
+    >
   </label>
   <progress
     id="mp-stats"
@@ -27,7 +35,10 @@
     [value]="player().currentMp"></progress>
   <label for="exp-stats">
     <span>EXP</span>
-    <span>{{ player().currentXp }}/{{ player().lvl * 100 }}</span>
+    <span>{{ player().currentXp | interfaceDigits }}/{{ player().lvl * 500 }}</span>
   </label>
-  <progress id="exp-stats" [max]="player().lvl * 100" [value]="player().currentXp"></progress>
+  <progress
+    id="exp-stats"
+    [max]="player().lvl * 500"
+    [value]="player().currentXp | interfaceDigits"></progress>
 </div>

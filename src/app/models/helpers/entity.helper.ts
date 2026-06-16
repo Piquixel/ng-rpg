@@ -40,11 +40,19 @@ export class EntityHelper {
     console.log(template);
     return {
       ...template,
-      icon: template.icon,
+      characteristics: {
+        hp: template.characteristics.hp * ratio,
+        mana: template.characteristics.mana * ratio,
+        atk: template.characteristics.atk * ratio,
+        def: template.characteristics.def * ratio,
+        speed: template.characteristics.speed * ratio,
+      },
       currentHp: template.characteristics.hp * ratio,
       currentMp: template.characteristics.mana * ratio,
       lvl: 1,
       kind,
+      goldReward: template.goldReward * ratio,
+      xpReward: template.xpReward * ratio,
     };
   }
 }
