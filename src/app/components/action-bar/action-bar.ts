@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject, input, output } from '@angular/core';
+import { GameManagerService } from 'models/services/game-manager.service';
 
 interface TypeActions {
   cost: number;
@@ -19,6 +20,10 @@ interface InventoryActions {
   styleUrl: './action-bar.scss',
 })
 export class ActionBar {
+  public disabled = input.required<boolean>();
+  public playerAtk = output<void>();
+  public readonly gameManager = inject(GameManagerService);
+  public playerQuit = output();
   public readonly typeActions: TypeActions[] = [
     { cost: 10, icon: '⚔️', name: 'Taillade' },
     { cost: 15, icon: '🛡️', name: 'Coup de bouclier' },

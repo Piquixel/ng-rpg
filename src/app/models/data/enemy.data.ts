@@ -18,6 +18,8 @@ export const ENEMY_DATA: Enemy[] = [
     currentHp: 30,
     currentMp: 0,
     kind: enemyKind.NORMAL,
+    xpReward: 100,
+    goldReward: 10,
   },
   {
     name: 'Troll',
@@ -34,22 +36,8 @@ export const ENEMY_DATA: Enemy[] = [
     currentHp: 80,
     currentMp: 0,
     kind: enemyKind.NORMAL,
-  },
-  {
-    name: 'Troll',
-    description: 'Gros monstre avec une force brute, mais lent et particulièrement bête.',
-    characteristics: {
-      atk: 15,
-      def: 10,
-      speed: 5,
-      hp: 80,
-      mana: 0,
-    },
-    race: EnemyRaceType.Troll,
-    lvl: 1,
-    currentHp: 80,
-    currentMp: 0,
-    kind: enemyKind.NORMAL,
+    xpReward: 250,
+    goldReward: 50,
   },
   {
     name: 'Loup',
@@ -66,5 +54,7 @@ export const ENEMY_DATA: Enemy[] = [
     currentHp: 50,
     currentMp: 0,
     kind: enemyKind.NORMAL,
+    goldReward: 25,
+    xpReward: 125,
   },
 ];

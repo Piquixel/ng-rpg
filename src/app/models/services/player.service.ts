@@ -41,6 +41,19 @@ export class PlayerService {
     return this.savedPlayers.length > 0;
   }
 
-  // public save(): void {}
+  public save(currentPlayer: Player): void {
+    const players = this.savedPlayers.filter(p => p.nickname !== currentPlayer.nickname);
+
+    if (players) {
+      players.push(currentPlayer);
+
+      try {
+        const toSave = JSON.stringify(players);
+        localStorage.setItem(this._playerKey, toSave);
+      } catch (err) {
+        console.error(err);
+      }
+    }
+  }
   // public delete(): void {}
 }
