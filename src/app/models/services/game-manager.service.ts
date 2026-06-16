@@ -6,6 +6,7 @@ import { Enemy } from 'interfaces/enemy.interface';
 import { Player } from 'interfaces/player.interface';
 import { EntityHelper } from 'models/helpers/entity.helper';
 import { map, Observable, zip } from 'rxjs';
+import { LogEntryService } from './log-entry.service';
 import { RandomService } from './random.service';
 
 @Injectable({
@@ -18,6 +19,7 @@ export class GameManagerService {
   private _CurrentEnemy?: Enemy;
 
   private readonly _random: RandomService = inject(RandomService);
+  private _logs: LogEntryService = inject(LogEntryService);
 
   public initGame(player: Player): void {
     this._currentPlayer = player;
@@ -77,6 +79,12 @@ export class GameManagerService {
           switch (this._gameState()) {
             case GameState.FIGHT_INIT:
               this._CurrentEnemy = this._enemies.shift();
+              this._logs.addLog('system', '⚔️', `Combat démarré!`);
+              this._logs.addLog(
+                'enemy',
+                this._CurrentEnemy!.icon,
+                `Un ${this.currentEnemy.name} surgit`,
+              );
               this._gameState.set(GameState.TURN_DECIDE);
               break;
             case GameState.TURN_DECIDE:

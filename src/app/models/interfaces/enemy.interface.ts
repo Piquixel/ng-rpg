@@ -8,4 +8,5 @@ export interface EnemyInstance extends BaseEntity {
 
 export interface Enemy extends EnemyInstance, BaseInstance {
   kind: enemyKind;
+  icon: '👺' | '👹' | '🧌' | '🐺' | '🐲';
 }

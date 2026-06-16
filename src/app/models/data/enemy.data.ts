@@ -4,6 +4,7 @@ import { Enemy } from 'interfaces/enemy.interface';
 
 export const ENEMY_DATA: Enemy[] = [
   {
+    icon: '👺',
     name: 'Gobelin',
     description: 'Petite créature verte, rapide et sournoise.',
     characteristics: {
@@ -20,6 +21,7 @@ export const ENEMY_DATA: Enemy[] = [
     kind: enemyKind.NORMAL,
   },
   {
+    icon: '🧌',
     name: 'Troll',
     description: 'Gros monstre avec une force brute, mais lent et particulièrement bête.',
     characteristics: {
@@ -36,6 +38,7 @@ export const ENEMY_DATA: Enemy[] = [
     kind: enemyKind.NORMAL,
   },
   {
+    icon: '🧌',
     name: 'Troll',
     description: 'Gros monstre avec une force brute, mais lent et particulièrement bête.',
     characteristics: {
@@ -52,6 +55,7 @@ export const ENEMY_DATA: Enemy[] = [
     kind: enemyKind.NORMAL,
   },
   {
+    icon: '🐺',
     name: 'Loup',
     description: 'Animal sauvage rapide et agressif.',
     characteristics: {

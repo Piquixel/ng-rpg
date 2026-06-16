@@ -1,10 +1,10 @@
 import { ENEMY_DATA } from 'data/enemy.data';
 import { EnemyRaceType } from 'enums/enemy-race-type.enum';
 import { enemyKind } from 'enums/kind.enum';
-import { Enemy, EnemyInstance } from 'interfaces/enemy.interface';
+import { Enemy } from 'interfaces/enemy.interface';
 
 export class EntityHelper {
-  private static _enemiesTemplate: EnemyInstance[] = ENEMY_DATA;
+  private static _enemiesTemplate: Enemy[] = ENEMY_DATA;
   private static BOSS_RATIO = 2;
   private static ELITE_RATIO = 1.3;
 
@@ -40,6 +40,7 @@ export class EntityHelper {
     console.log(template);
     return {
       ...template,
+      icon: template.icon,
       currentHp: template.characteristics.hp * ratio,
       currentMp: template.characteristics.mana * ratio,
       lvl: 1,
