@@ -5,19 +5,19 @@
       (click)="playerAtk.emit()"
       class="btnUtility action-btn primary">
       <span class="btn-icon">🗡️</span>
-      <span class="btn-label">Attaque</span>
+      <span class="btn-label">Attack</span>
     </button>
     <button
       [disabled]="!disabled()"
       (click)="playerQuit.emit()"
       class="btnUtility action-btn danger">
       <span class="btn-icon">🏃</span>
-      <span class="btn-label">Fuir</span>
+      <span class="btn-label">Run Away</span>
     </button>
   </div>
 
   <div class="action-group">
-    <h4 class="group-title">✨ Compétences</h4>
+    <h4 class="group-title">✨ Skills</h4>
     <div class="group-grid">
       @for (item of typeActions; track item.name) {
         <button [disabled]="!disabled()" class="btnUtility action-btn skill">
@@ -29,7 +29,7 @@
     </div>
 
     <div class="action-group">
-      <h4 class="group-title">🎒 Inventaire</h4>
+      <h4 class="group-title">🎒 Inventory</h4>
       <div class="group-grid">
         @for (item of inventoryActions; track item.name) {
           <button [disabled]="!disabled()" class="btnUtility action-btn item">

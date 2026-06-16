@@ -5,17 +5,27 @@
 <section>
   <div>
     <hgroup>
-      <h3>🔮Mage</h3>
-      <p>test - Niv.1</p>
+      <h3>{{ playerStats.icon }} {{ playerStats.type | titlecase }}</h3>
+      <p>{{ playerStats.nickname }} - Lv.{{ playerStats.lvl }}</p>
     </hgroup>
     <div>
-      <span>⚔️Attack<i>20</i></span>
-      <span>🛡️Defense<i>5</i></span>
-      <span>💨Speed<i>10</i></span>
-      <span>❤️Max HP<i>70</i></span>
-      <span>💙Max MP<i>100</i></span>
+      <span
+        >⚔️Attack<i>{{ playerStats.characteristics.atk | interfaceDigits: 1 }}</i></span
+      >
+      <span
+        >🛡️Defense<i>{{ playerStats.characteristics.def | interfaceDigits: 1 }}</i></span
+      >
+      <span
+        >💨Speed<i>{{ playerStats.characteristics.speed | interfaceDigits: 1 }}</i></span
+      >
+      <span
+        >❤️Max HP<i>{{ playerStats.characteristics.hp | interfaceDigits }}</i></span
+      >
+      <span
+        >💙Max MP<i>{{ playerStats.characteristics.mana | interfaceDigits }}</i></span
+      >
     </div>
-    <span>💰50 gold coins</span>
+    <span>💰{{ playerStats.money }} gold coins</span>
   </div>
   <div>
     <ul>
