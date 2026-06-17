@@ -1,10 +1,12 @@
 import { Component, input, InputSignal, output, OutputEmitterRef } from '@angular/core';
+import { ZoneMap } from 'enums/zones.enum';
 
-interface ZoneInfo {
+export interface ZoneInfo {
   description: string;
   difficulty: string;
   difficultyColor: string;
   enemies: string;
+  zone: ZoneMap;
   icon: string;
   id: string;
   minLevel: number;
@@ -31,6 +33,7 @@ export class MapSelector {
       enemies: 'Wolves, Goblins, Trolls',
       icon: '🌲',
       minLevel: 1,
+      zone: ZoneMap.FOREST,
     },
     {
       id: 'donjon',
@@ -41,6 +44,7 @@ export class MapSelector {
       icon: '🏚️',
       minLevel: 3,
       name: 'Cursed Donjon',
+      zone: ZoneMap.DUNGEON,
     },
     {
       description: 'Dangerous mountain inhabited by legendary creatures.',
@@ -51,6 +55,7 @@ export class MapSelector {
       id: 'mountain',
       minLevel: 5,
       name: 'Chaos Mountain',
+      zone: ZoneMap.MOUNTAIN,
     },
   ];
 }

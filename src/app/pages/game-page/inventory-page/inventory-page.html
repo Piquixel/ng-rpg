@@ -29,24 +29,27 @@
   </div>
   <div>
     <ul>
-      <li id="selected">🎒All</li>
-      <li>🧪Potions</li>
-      <li>🗡️Weapons</li>
-      <li>🥋Armor</li>
-      <li>💍Accessories</li>
+      <li class="selected">🎒All</li>
+      @for (item of inventoryTypeFilter; track item) {
+        <li>{{ IconByType[item] }} {{ item | titlecase }}</li>
+      }
     </ul>
     <div>
-      <div>
+      @for (item of bag; track item) {
         <div>
-          <span>🧪</span>
           <div>
-            <h4>Small Healing Potion</h4>
-            <span>Heals 30 HP</span>
-            <p><span>Common</span> &times;3</p>
+            <span>{{ item.icon }}</span>
+            <div>
+              <h4>{{ item.name }}</h4>
+              <span>{{ item.description }}</span>
+              <p>
+                <span>{{ item.rarity | titlecase }}</span> &times;{{ item.quantity }}
+              </p>
+            </div>
           </div>
+          <button>🧪Use</button>
         </div>
-        <button>🧪Use</button>
-      </div>
+      }
     </div>
   </div>
 </section>

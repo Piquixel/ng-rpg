@@ -33,9 +33,14 @@ section {
           border-radius: v.$radiusRound;
           padding: 0.66rem;
           background-color: hsl(0 0% 50% / 0.2);
+          cursor: pointer;
 
-          &#selected {
-            // background-color: v.$InteractionSecondary;
+          &:hover:not(.selected) {
+            background-color: hsl(0 0% 50% / 0.5);
+          }
+
+          &.selected {
+            background-color: v.$accentColor;
           }
         }
 

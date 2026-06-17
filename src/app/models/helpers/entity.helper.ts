@@ -1,10 +1,11 @@
 import { ENEMY_DATA } from 'data/enemy.data';
 import { EnemyRaceType } from 'enums/enemy-race-type.enum';
 import { enemyKind } from 'enums/kind.enum';
-import { Enemy } from 'interfaces/enemy.interface';
+import { ZoneMap } from 'enums/zones.enum';
+import { Enemy, EnemyInstance } from 'interfaces/enemy.interface';
 
 export class EntityHelper {
-  private static _enemiesTemplate: Enemy[] = ENEMY_DATA;
+  private static _enemiesTemplate: EnemyInstance[] = ENEMY_DATA;
   private static BOSS_RATIO = 2;
   private static ELITE_RATIO = 1.3;
 
@@ -27,8 +28,31 @@ export class EntityHelper {
     2: EnemyRaceType.Wolf,
   };
 
-  public static getRaceByNumbers(arr: number[]): EnemyRaceType[] {
-    return arr.map(n => EntityHelper.RaceMap[n] ?? EnemyRaceType.Goblin);
+  public static RaceMapDungeon: Record<number, EnemyRaceType> = {
+    // 0: EnemyRaceType.Dragon,
+    0: EnemyRaceType.Widow,
+    // 2: EnemyRaceType.Orc,
+    1: EnemyRaceType.DARK_MAGE,
+    2: EnemyRaceType.LICH,
+  };
+
+  public static RaceMapMountain: Record<number, EnemyRaceType> = {
+    // 0: EnemyRaceType.Dragon,
+    0: EnemyRaceType.Orc,
+    // 2: EnemyRaceType.Orc,
+    1: EnemyRaceType.Dragon,
+    2: EnemyRaceType.Angular,
+  };
+
+  public static getRaceByNumbersAndZone(arr: number[], zone: ZoneMap): EnemyRaceType[] {
+    switch (zone) {
+      case ZoneMap.FOREST:
+        return arr.map(n => EntityHelper.RaceMap[n] ?? EnemyRaceType.Goblin);
+      case ZoneMap.DUNGEON:
+        return arr.map(n => EntityHelper.RaceMapDungeon[n] ?? EnemyRaceType.Widow);
+      case ZoneMap.MOUNTAIN:
+        return arr.map(n => EntityHelper.RaceMapMountain[n] ?? EnemyRaceType.Orc);
+    }
   }
   public static getKindByNumbers(arr: number[]): enemyKind[] {
     return arr.map(n => EntityHelper.KindMap[n] ?? enemyKind.NORMAL);

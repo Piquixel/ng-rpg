@@ -1,11 +1,10 @@
 import { EnemyRaceType } from 'enums/enemy-race-type.enum';
-import { enemyKind } from 'enums/kind.enum';
-import { Enemy } from 'interfaces/enemy.interface';
+import { ZoneMap } from 'enums/zones.enum';
+import { EnemyInstance } from 'interfaces/enemy.interface';
 
-export const ENEMY_DATA: Enemy[] = [
+export const ENEMY_DATA: EnemyInstance[] = [
   {
-    icon: '👺',
-    name: 'Gobelin',
+    name: 'Gobelin de malheur',
     description: 'Petite créature verte, rapide et sournoise.',
     characteristics: {
       atk: 2,
@@ -15,15 +14,11 @@ export const ENEMY_DATA: Enemy[] = [
       mana: 0,
     },
     race: EnemyRaceType.Goblin,
-    lvl: 1,
-    currentHp: 30,
-    currentMp: 0,
-    kind: enemyKind.NORMAL,
     xpReward: 100,
     goldReward: 10,
+    zone: ZoneMap.FOREST,
   },
   {
-    icon: '🧌',
     name: 'Troll',
     description: 'Gros monstre avec une force brute, mais lent et particulièrement bête.',
     characteristics: {
@@ -34,15 +29,11 @@ export const ENEMY_DATA: Enemy[] = [
       mana: 0,
     },
     race: EnemyRaceType.Troll,
-    lvl: 1,
-    currentHp: 80,
-    currentMp: 0,
-    kind: enemyKind.NORMAL,
     xpReward: 250,
     goldReward: 50,
+    zone: ZoneMap.FOREST,
   },
   {
-    icon: '🐺',
     name: 'Loup',
     description: 'Animal sauvage rapide et agressif.',
     characteristics: {
@@ -53,11 +44,98 @@ export const ENEMY_DATA: Enemy[] = [
       mana: 0,
     },
     race: EnemyRaceType.Wolf,
-    lvl: 1,
-    currentHp: 50,
-    currentMp: 0,
-    kind: enemyKind.NORMAL,
-    goldReward: 25,
     xpReward: 125,
+    goldReward: 25,
+    zone: ZoneMap.FOREST,
+  },
+  {
+    name: 'Veuve',
+    description: 'Veuve perdue à la recherche de son mari.',
+    characteristics: {
+      atk: 20,
+      def: 12,
+      speed: 25,
+      hp: 70,
+      mana: 10,
+    },
+    race: EnemyRaceType.Widow,
+    xpReward: 125,
+    goldReward: 500,
+    zone: ZoneMap.DUNGEON,
+  },
+  {
+    name: 'Mage sombre',
+    description: 'Un mage qui cherche à détruire les aventuriers.',
+    characteristics: {
+      atk: 42,
+      def: 12,
+      speed: 25,
+      hp: 20,
+      mana: 10,
+    },
+    race: EnemyRaceType.DARK_MAGE,
+    xpReward: 375,
+    goldReward: 200,
+    zone: ZoneMap.DUNGEON,
+  },
+  {
+    name: 'Lich',
+    description: 'Mage déchu prêt à rivaliser.',
+    characteristics: {
+      atk: 52,
+      def: 24,
+      speed: 5,
+      hp: 200,
+      mana: 0,
+    },
+    race: EnemyRaceType.LICH,
+    xpReward: 375,
+    goldReward: 200,
+    zone: ZoneMap.DUNGEON,
+  },
+  {
+    name: 'Orc',
+    description: 'Orc des montagne costaud.',
+    characteristics: {
+      atk: 57,
+      def: 0,
+      speed: 5,
+      hp: 300,
+      mana: 0,
+    },
+    race: EnemyRaceType.Orc,
+    xpReward: 525,
+    goldReward: 290,
+    zone: ZoneMap.MOUNTAIN,
+  },
+  {
+    name: 'Dragon',
+    description: 'Ce dragon protège le nid sur la montagne.',
+    characteristics: {
+      atk: 100,
+      def: 0,
+      speed: 25,
+      hp: 500,
+      mana: 0,
+    },
+    race: EnemyRaceType.Dragon,
+    xpReward: 1000,
+    goldReward: 1000,
+    zone: ZoneMap.MOUNTAIN,
+  },
+  {
+    name: 'Roi Angular',
+    description: 'Ultime Roi à combattre.',
+    characteristics: {
+      atk: 1000,
+      def: 1000,
+      speed: 100,
+      hp: 5000,
+      mana: 0,
+    },
+    race: EnemyRaceType.Dragon,
+    xpReward: 10000,
+    goldReward: 10000,
+    zone: ZoneMap.MOUNTAIN,
   },
 ];

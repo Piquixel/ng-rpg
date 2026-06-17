@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { MapSelector } from 'components/map-selector/map-selector';
+import { MapSelector, ZoneInfo } from 'components/map-selector/map-selector';
 import { PlayerStats } from 'components/player-stats/player-stats';
 import { GameManagerService } from 'models/services/game-manager.service';
 
@@ -13,7 +13,7 @@ import { GameManagerService } from 'models/services/game-manager.service';
 export class MapPage {
   public gameManager: GameManagerService = inject(GameManagerService);
   public readonly router: Router = inject(Router);
-  public redirectToFight(): void {
-    this.router.navigateByUrl('/game/combat');
+  public redirectToFight(event: ZoneInfo): void {
+    this.router.navigateByUrl('/game/combat/' + event.zone);
   }
 }

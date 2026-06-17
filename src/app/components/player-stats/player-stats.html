@@ -35,7 +35,7 @@
     [value]="player().currentMp"></progress>
   <label for="exp-stats">
     <span>EXP</span>
-    <span>{{ player().currentXp | interfaceDigits }}/{{ player().lvl * 500 }}</span>
+    <span>{{ player().currentXp | interfaceDigits }}/{{ nextLvXp(player().lvl) }}</span>
   </label>
   <progress
     id="exp-stats"

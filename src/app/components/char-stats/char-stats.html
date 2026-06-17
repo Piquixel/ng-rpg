@@ -2,22 +2,22 @@
 <div class="statsContainer">
   <p class="statRow">
     <span class="statLabel">⚔️Attack</span>
-    <span class="statValue">{{ guild()?.characteristics?.atk || 0 }}</span>
+    <span class="statValue">{{ guild()?.characteristics?.atk || 0 | interfaceDigits }}</span>
   </p>
   <p class="statRow">
     <span class="statLabel">🛡️Defense</span>
-    <span class="statValue">{{ guild()?.characteristics?.def || 0 }}</span>
+    <span class="statValue">{{ guild()?.characteristics?.def || 0 | interfaceDigits }}</span>
   </p>
   <p class="statRow">
     <span class="statLabel">💨Speed</span>
-    <span class="statValue">{{ guild()?.characteristics?.speed || 0 }}</span>
+    <span class="statValue">{{ guild()?.characteristics?.speed || 0 | interfaceDigits }}</span>
   </p>
   <p class="statRow">
     <span class="statLabel">❤️Max HP</span>
-    <span class="statValue">{{ guild()?.characteristics?.hp || 0 }}</span>
+    <span class="statValue">{{ guild()?.characteristics?.hp || 0 | interfaceDigits }}</span>
   </p>
   <p class="statRow">
     <span class="statLabel">🩵Max MP</span>
-    <span class="statValue">{{ guild()?.characteristics?.mana || 0 }}</span>
+    <span class="statValue">{{ guild()?.characteristics?.mana || 0 | interfaceDigits }}</span>
   </p>
 </div>

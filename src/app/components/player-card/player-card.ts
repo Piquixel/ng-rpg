@@ -7,10 +7,14 @@ import { InterfaceDigitsPipe } from '../../pipes/interface-digits-pipe';
 
 const IconByRace: Record<EnemyRaceType, string> = {
   [EnemyRaceType.Goblin]: '👺',
-  [EnemyRaceType.Orc]: '👹',
   [EnemyRaceType.Troll]: '🧌',
   [EnemyRaceType.Wolf]: '🐺',
+  [EnemyRaceType.Widow]: '👰‍♀️',
+  [EnemyRaceType.DARK_MAGE]: '🐦‍⬛',
+  [EnemyRaceType.LICH]: '💀',
+  [EnemyRaceType.Orc]: '👹',
   [EnemyRaceType.Dragon]: '🐲',
+  [EnemyRaceType.Angular]: '🤴',
 };
 
 @Component({

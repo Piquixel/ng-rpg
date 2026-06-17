@@ -25,7 +25,7 @@ export const routes: Routes = [
       { path: 'map', title: 'Carte', component: MapPage },
       { path: 'city', title: 'Ville', component: CityPage },
       { path: 'inventory', title: 'Inventaire', component: InventoryPage },
-      { path: 'combat', title: 'Combat', component: CombatPage },
+      { path: 'combat/:slug', title: 'Combat', component: CombatPage },
       { path: '**', redirectTo: '/game/map' },
     ],
   },

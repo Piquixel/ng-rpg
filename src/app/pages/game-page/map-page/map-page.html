@@ -8,7 +8,7 @@
 </hgroup>
 <div>
   <div>
-    <app-map-selector (zoneSelected)="redirectToFight()" [lvl]="player.lvl" />
+    <app-map-selector (zoneSelected)="redirectToFight($event)" [lvl]="player.lvl" />
   </div>
   <span class="actions">
     <button class="btnUtility w-full">🏰Go back to the city</button>

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { EnemyRaceType } from 'enums/enemy-race-type.enum';
 import { GameState } from 'enums/gameState.enum';
 import { enemyKind } from 'enums/kind.enum';
+import { ZoneMap } from 'enums/zones.enum';
 import { Enemy } from 'interfaces/enemy.interface';
 import { Player } from 'interfaces/player.interface';
 import { EntityHelper } from 'models/helpers/entity.helper';
@@ -31,10 +32,10 @@ export class GameManagerService {
     this._currentPlayer = player;
   }
 
-  public getRandomEnemiesType(): Observable<EnemyRaceType[]> {
+  public getRandomEnemiesType(zone: ZoneMap): Observable<EnemyRaceType[]> {
     return this._random
       .generateIntegerAndGetData(5, 0, 2)
-      .pipe(map(values => EntityHelper.getRaceByNumbers(values)));
+      .pipe(map(values => EntityHelper.getRaceByNumbersAndZone(values, zone)));
   }
 
   public getRandomEnemiesKind(): Observable<enemyKind[]> {
@@ -63,8 +64,8 @@ export class GameManagerService {
     return this._currentEnemy()!;
   }
 
-  public startFight(): void {
-    const type$ = this.getRandomEnemiesType();
+  public startFight(zone: ZoneMap): void {
+    const type$ = this.getRandomEnemiesType(zone);
     const kind$ = this.getRandomEnemiesKind();
 
     zip(type$, kind$)
@@ -148,7 +149,7 @@ export class GameManagerService {
     }
   }
 
-  private xpForNextLevel(level: number): number {
+  public xpForNextLevel(level: number): number {
     return 500 * Math.pow(2.5, level - 1);
   }
 
